@@ -24,7 +24,7 @@ Area of the rectangle is 28
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-14T09:21:59.281Z  
+**Submitted:** 2026-08-14T09:22:14.484Z  
 
 ```java
 class Rectangle {
