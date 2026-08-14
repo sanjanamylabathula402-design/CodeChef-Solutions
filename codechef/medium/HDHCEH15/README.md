@@ -4,15 +4,24 @@
 
 ## Problem
 
-### Accessing members using Dot operator
-- You are given an Account class for which the transaction1 object is being created. Try to access the t_id and amount data members using the (.) Dot operator.
-- Assign the value 1003 to t_id and 50,000 to amount.
-
- **Once your code is executed, the output should look as follows:** 
+### Create a `Dog` object
+- To hammer it home, there's another practice problem on (.) Dot operator for you. In this problem, you are given a Dog class. This class will serve as the blueprint for Dog objects. Let's say a Dog has a name (String) and a breed (String).
 
 ```
-The transaction ID is 1003
-The amount spent is 50000.0
+class Dog {
+    String name;
+    String breed;
+}
+
+```
+
+- Now, your task is to create a Dog object using the new keyword inside the main method. Then, you have to assign values for both name and breed using (.) Dot operator. At last, print the result.
+
+ **Expected Output** 
+
+```
+Breed: pug
+Name: bob
 
 ```
 
@@ -21,36 +30,29 @@ The amount spent is 50000.0
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-14T09:34:52.632Z  
+**Submitted:** 2026-08-14T09:40:21.465Z  
 
 ```java
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-
-class Account{
-    int t_id;
-    float amount;
+class Dog{
+    String breed;
+    String name;
 }
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		Account transaction1 = new Account();
- 
-       // access data members t_id and amount from object transcaction1 and then assign values to them
-       
-       transaction1.t_id=1003;
-       transaction1.amount=50000.0f;
-       
-
-        // access  t_id from transcation1 to print 
-        System.out.println("The transaction ID is "+ transaction1.t_id);
-        // access  amount from transcation1 to print 
-        System.out.println("The amount spent is "+ transaction1.amount);
-	}
+class Codechef {
+    public static void main(String[] args) {
+        // Create an object for Dog class here 
+        Dog doggy=new Dog();
+        
+        // assign values for breed and name, breed is "pug" and name is "bob"
+        doggy.breed="pug";
+        doggy.name="bob";
+        
+        // print the result
+        System.out.println("Breed: " + doggy.breed);
+        System.out.println("Name: " + doggy.name);
+    }
 }
+
 ```
 
 ---
