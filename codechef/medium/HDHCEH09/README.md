@@ -13,7 +13,7 @@ When you write the syntax  **className objectName = new className()**  for an  *
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-14T09:24:02.439Z  
+**Submitted:** 2026-08-14T09:25:28.097Z  
 
 ```cpp
 import java.util.*;
