@@ -4,20 +4,18 @@
 
 ## Problem
 
-### Creating a user class
-
-You've already learned how to define a  **class**  in Java and understood its basic structure. Now, let’s quickly test your understanding with a simple question:
-
-Try to identify the correct way to create a class in Java.
+### Worked example
+- Now that you have understood the theoretical concept and syntax of a class, it's time to understand an actual code example for a class.
+- Read this code and try to understand the way to define a class. Don't stress too much about instance variables, methods, and object creation for now; they will be discussed in depth later. For now, just focus on declaring a class.
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-14T09:21:23.165Z  
+**Submitted:** 2026-08-14T09:20:55.463Z  
 
-```cpp
+```java
 import java.util.*;
 import java.lang.*;
 import java.io.*;
