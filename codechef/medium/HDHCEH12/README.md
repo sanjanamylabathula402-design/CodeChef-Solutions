@@ -4,33 +4,52 @@
 
 ## Problem
 
-_Description not available._
+### Accessing members using Dot operator
+- You are given an Account class for which the transaction1 object is being created. Try to access the t_id and amount data members using the (.) Dot operator.
+- Assign the value 1003 to t_id and 50,000 to amount.
+
+ **Once your code is executed, the output should look as follows:** 
+
+```
+The transaction ID is 1003
+The amount spent is 50000.0
+
+```
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-14T09:30:39.601Z  
+**Submitted:** 2026-08-14T09:34:49.706Z  
 
 ```java
-// Rectangle class defined
-class Rectangle {
-    int length;
-    int width;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Account{
+    int t_id;
+    float amount;
 }
 
-public class Main {
-    public static void main(String[] args) {
-        // Created a Rectangle object 
-        Rectangle fig1 = new Rectangle();
-        // Way  dot operator will be used for assigning values to data members for object
-        fig1.length = 7;
-        fig1.width = 6;
-        // Way  dot operator will be used for acceessing values of data members for object
-        System.out.println("Length : " + fig1.length);   
-        System.out.println("Width : " + fig1.width);   
-    }
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Account transaction1 = new Account();
+ 
+       // access data members t_id and amount from object transcaction1 and then assign values to them
+       
+       transaction1.t_id=1003;
+       transaction1.amount=50000.0f;
+       
+
+        // access  t_id from transcation1 to print 
+        System.out.println("The transaction ID is "+ transaction1.t_id);
+        // access  amount from transcation1 to print 
+        System.out.println("The amount spent is "+ transaction1.amount);
+	}
 }
 ```
 
