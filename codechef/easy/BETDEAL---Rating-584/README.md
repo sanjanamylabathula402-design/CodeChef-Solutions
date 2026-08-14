@@ -64,7 +64,7 @@ The second store has a discount of $55\%$. Thus, the final price of the product 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-14T09:02:10.201Z  
+**Submitted:** 2026-08-14T09:02:21.911Z  
 
 ```java
 import java.util.*;
