@@ -4,18 +4,16 @@
 
 ## Problem
 
-### Valid object name
-
-When you write the syntax  **className objectName = new className()**  for an  **object**, you use the  **new**  keyword before  **className**. What is the use of the  **new**  keyword?
+_Description not available._
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-14T09:25:28.097Z  
+**Submitted:** 2026-08-14T09:23:40.660Z  
 
-```cpp
+```java
 import java.util.*;
 import java.lang.*;
 import java.io.*;
