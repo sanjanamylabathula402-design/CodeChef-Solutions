@@ -32,7 +32,7 @@ Even
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T16:56:49.751Z  
+**Submitted:** 2026-08-17T16:56:52.002Z  
 
 ```cpp
 class CodeChef {
