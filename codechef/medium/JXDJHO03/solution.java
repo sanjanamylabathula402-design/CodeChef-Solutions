@@ -1,51 +1,52 @@
-class StudentRecord {
-    private int studentId;
+class Employee {
+    private int employeeId;
     private String name;
 
-    public StudentRecord(int studentId, String name) {
-        this.studentId = studentId;
+    public Employee(int employeeId, String name) {
+        this.employeeId = employeeId;
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (this == obj) {
-            return true;
-        }
-        if (!(obj instanceof StudentRecord)) {
-            return false;
-        }
-
-        StudentRecord other = (StudentRecord) obj;
-
-        return this.studentId == other.studentId && this.name.equals(other.name);
-    }
-
-    public int getStudentId() {
-        return studentId;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
     public String getName() {
         return name;
     }
 
-    public static void main(String[] args) {
-        StudentRecord student1 = new StudentRecord(123, "Alice");
-        StudentRecord student2 = new StudentRecord(123, "Alice");
-        StudentRecord student3 = new StudentRecord(456, "Bob");
-        StudentRecord student4 = new StudentRecord(123, "Charlie");
-        StudentRecord student5 = student1;
-        String notAStudent = "Not a student";
+    @Override
+    public boolean equals(Object obj) {
+        // Implement the equals method here
+        if(obj == null)
+        {
+            return false;
+        }
+        if(this == obj)
+        {
+            return true;
+        }
+        if(!(obj instanceof Employee))
+        {
+            return false;
+        }
+        Employee other =(Employee) obj;
+        return this.employeeId == other.employeeId && this.name.equals(other.name);
+    }
+}
 
-        System.out.println("student1.equals(student2): " + student1.equals(student2));
-        System.out.println("student1.equals(student3): " + student1.equals(student3));
-        System.out.println("student1.equals(student4): " + student1.equals(student4));
-        System.out.println("student1.equals(student1): " + student1.equals(student1));
-        System.out.println("student1.equals(student5): " + student1.equals(student5));
-        System.out.println("student1.equals(null): " + student1.equals(null));
-        System.out.println("student1.equals(notAStudent): " + student1.equals(notAStudent));
+class Codechef {
+    public static void main(String[] args) {
+        Employee emp1 = new Employee(101, "Alice");
+        Employee emp2 = new Employee(101, "Alice");
+        Employee emp3 = new Employee(102, "Bob");
+        Employee emp4 = new Employee(101, "Charlie");
+        Employee emp5 = emp1;
+
+        System.out.println("emp1 equals emp2: " + emp1.equals(emp2));
+        System.out.println("emp1 equals emp3: " + emp1.equals(emp3));
+        System.out.println("emp1 equals emp4: " + emp1.equals(emp4));
+        System.out.println("emp1 equals emp5: " + emp1.equals(emp5));
+        System.out.println("emp1 equals null: " + emp1.equals(null));
     }
 }
