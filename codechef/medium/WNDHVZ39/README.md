@@ -4,34 +4,16 @@
 
 ## Problem
 
-### Fill in the Blanks - Check Temperature Safety
-
-Complete the following Java program by filling in the missing part so that it correctly checks if a machine's temperature is within the safe operating range and prints `"Temperature is within the safe limit."` when the condition is met.
-
-```
-import java.util.*;
-
-class Codechef {
-    public static void main(String[] args) {
-        int machineTemperature = 75;
-        int maxSafeTemperature = 80;
-
-        if (_____) {  // Fill in the blank
-            System.out.println("Temperature is within the safe limit.");
-        }
-    }
-}
-
-```
+_Description not available._
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T09:58:43.755Z  
+**Submitted:** 2026-08-17T09:58:35.191Z  
 
-```cpp
+```java
 import java.util.*;
 
 class Codechef {
