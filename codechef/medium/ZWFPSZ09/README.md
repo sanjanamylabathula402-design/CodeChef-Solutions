@@ -39,14 +39,14 @@ Rain Expected: false
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T09:04:41.620Z  
+**Submitted:** 2026-08-17T09:05:17.436Z  
 
 ```java
 import java.util.Scanner;
 
 class Codechef {
     public static void main(String[] args) {
-        // Create a Scanner object to read user input
+
         Scanner scanner = new Scanner(System.in);
 
         // Collect the temperature as a float
