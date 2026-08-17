@@ -4,32 +4,44 @@
 
 ## Problem
 
-_Description not available._
+### Secure Login System
+
+You are creating a basic login check. The system should keep checking the password until it matches the correct one.
+
+ **Your Task:** 
+Write the condition for while loop.
+
+ **Expected Output:** 
+
+```
+Access Granted!
+
+```
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:19:18.123Z  
+**Submitted:** 2026-08-17T10:19:32.387Z  
 
 ```java
 class Codechef {
     public static void main(String[] args) {
-        
-        // Declare a boolean condition
-        boolean isRunning = true;
 
-        // While loop to print a message while the condition is true
-        while (isRunning) {
-            System.out.println("The process is running...");
-            
-            // Changing the condition to false (breaking the loop)
-            isRunning = false; 
+        String correctPassword = "JavaRocks";
+        String enteredPassword = "JavaRocks";
+
+        // Write the condition below in the while loop
+        while (!enteredPassword.equals(correctPassword) ) {
+            System.out.println("Invalid Password");
+
         }
+
+        System.out.println("Access Granted!");
+
     }
 }
-
 ```
 
 ---
