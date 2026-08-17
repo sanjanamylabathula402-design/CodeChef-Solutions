@@ -4,35 +4,84 @@
 
 ## Problem
 
-_Description not available._
+### Distributing Books Evenly
+
+A school is distributing books among students. Write a program that takes user input for the total number of books and the number of students. Use division (`/`) to calculate how many books each student will receive and modulus (`%`) to determine if any books remain undistributed.
+
+ **Input:** 
+
+- An integer representing the total number of books.
+- An integer representing the number of students.
+### Sample 1:
+Input
+Output
+
+```
+20
+5
+```
+
+```
+Each student gets 4 books equally.
+
+```
+
+### Sample 2:
+Input
+Output
+
+```
+23
+5
+```
+
+```
+Each student gets 4 books, but 3 books remain undistributed.
+
+```
+
+### Sample 3:
+Input
+Output
+
+```
+19
+5
+```
+
+```
+Each student gets 3 books, but 4 books remain undistributed.
+```
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T09:33:23.601Z  
+**Submitted:** 2026-08-17T09:35:01.706Z  
 
 ```java
 import java.util.*;
 
 class Codechef {
     public static void main(String[] args) {
-        // Declaring a variable to store the secret code
-        int secretCode = 7890;
-        
-        Scanner sc = new Scanner(System.in);
-        int enteredCode=sc.nextInt();
-        
-        // Checking if the enteredCode code matches the predefined secretCode
-        if ( enteredCode==secretCode ) {  // Fill in the blank
-            System.out.println("Access Granted: Vault Unlocked."); // Fill in the blank
-        } else {
-            System.out.println("Access Denied"); // Fill in the blank
-        }
+        Scanner scanner = new Scanner(System.in);
 
-        // Indicating that the verification process is complete
-        System.out.println("Verification completed.");
+        // Taking user input for total books and number of students
+        int totalBooks = scanner.nextInt();
+
+        int students = scanner.nextInt();
+
+        // Calculating books per student and remaining books
+        int booksPerStudent = totalBooks / students;
+        int remainingBooks = totalBooks % students;
+
+        // Printing the output based on the condition
+        if (remainingBooks == 0) {
+            System.out.println("Each student gets " + booksPerStudent + " books equally.");
+        } else {
+            System.out.println("Each student gets " + booksPerStudent + " books, but " + remainingBooks + " books remain undistributed.");
+        }
     }
 }
 
