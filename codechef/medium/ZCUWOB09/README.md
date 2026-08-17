@@ -4,29 +4,32 @@
 
 ## Problem
 
-### Worked Example - Range Using For Loop
+### MCQ - Finding the Output
 
-In this example, we demonstrate how to use a for loop with a defined start and end range to iterate through a sequence of numbers, printing twice the value of each number instead of the number itself in each iteration.
-
- **When executed, the code will show:** 
+What will be the output of the following Java program?
 
 ```
-10
-12
-14
-16
-18  
+class Codechef {
+    public static void main(String[] args) {
+        int start = 2;
+        int end = 5;
+
+        for (int i = start; i <= end; i++) {
+            System.out.println(i);
+        }
+    }
+}
 
 ```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:37:29.009Z  
+**Submitted:** 2026-08-17T10:37:37.186Z  
 
-```java
+```cpp
 class Codechef {
     public static void main(String[] args) {
         int start = 5; // Define the starting number
