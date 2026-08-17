@@ -4,53 +4,101 @@
 
 ## Problem
 
-### MCQ - Nested While Loop
+### Generating Addition Tables for Odd Numbers
 
-What will be the output of the following Java program that uses a  **nested while loop**  to print the  **multiplication table**  for numbers 1 to 3?
+In this task, you are asked to generate  **addition tables for odd numbers**  within a  **user-defined range**. Each addition table should display the  **sum of the odd number**  with the multipliers from given range.
+
+ **Input:**  Take the starting point, ending point, and addition limit as input.
+
+ **Steps to Complete:** 
+
+- A while loop iterates through numbers from start to end and it checks for odd numbers using start % 2 != 0.
+- For each odd number, an inner while loop generates its addition table up to the given limit.
+- Print the result.
+### Sample 1:
+Input
+Output
 
 ```
-class Codechef{
-    public static void main(String[] args) {
-        int i = 1;
-        while (i <= 3) {
-            int j = 1;
-            while (j <= 3) {
-                System.out.print(i * j + "\t");
-                j++;
-            }
-            System.out.println();
-            i++;
-        }
-    }
-}
+1
+5
+5
+```
 
+```
+Addition Table for 1:
+1 + 1 = 2
+1 + 2 = 3
+1 + 3 = 4
+1 + 4 = 5
+1 + 5 = 6
+Addition Table for 3:
+3 + 1 = 4
+3 + 2 = 5
+3 + 3 = 6
+3 + 4 = 7
+3 + 5 = 8
+Addition Table for 5:
+5 + 1 = 6
+5 + 2 = 7
+5 + 3 = 8
+5 + 4 = 9
+5 + 5 = 10
+```
+
+### Sample 2:
+Input
+Output
+
+```
+1
+7
+2
+```
+
+```
+Addition Table for 1:
+1 + 1 = 2
+1 + 2 = 3
+Addition Table for 3:
+3 + 1 = 4
+3 + 2 = 5
+Addition Table for 5:
+5 + 1 = 6
+5 + 2 = 7
+Addition Table for 7:
+7 + 1 = 8
+7 + 2 = 9
 ```
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:30:17.072Z  
+**Submitted:** 2026-08-17T10:31:00.687Z  
 
-```cpp
+```java
+import java.util.Scanner;
+
 class Codechef {
     public static void main(String[] args) {
-        int row = 1; // Initialize row counter
-
-        // Outer loop: Iterates through 4 rows
-        while (row <= 4) {  
-            int column = 1; // Reset column for each row
-
-            // Inner loop: Iterates through 4 columns
-            while (column <= 4) {  
-                System.out.print("(" + row + "," + column + ") "); // Print cell coordinates
-                column++; // Increment column
+        Scanner scanner = new Scanner(System.in);
+        int start = scanner.nextInt();  
+        int end = scanner.nextInt();  
+        int limit = scanner.nextInt(); 
+        while (start <= end) {
+            if (start % 2 != 0) { 
+                System.out.println("Addition Table for " + start + ":");
+                int addend = 1;
+                while (addend <= limit) {
+                    System.out.println(start + " + " + addend + " = " + (start + addend));
+                    addend++; 
+                }
             }
-
-            System.out.println(); // Move to the next line after completing a row
-            row++; // Increment row counter
+            start++; 
         }
+        scanner.close();
     }
 }
 
