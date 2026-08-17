@@ -4,39 +4,16 @@
 
 ## Problem
 
-### MCQ - For Loop with Range
-
-Complete the following Java program to print "I love Java" followed by numbers from the range using a for loop with range.
-
-```
-class Codechef {
-    public static void main(String[] args) {
-        for (___ ; ___ ; ___) { // Fill in the blanks
-            System.out.println("I love Java " + i);
-        }
-    }
-}
-
-```
-
-Expected Output:
-
-```
-I love Java 1  
-I love Java 2  
-I love Java 3  
-I love Java 4  
-
-```
+_Description not available._
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:36:07.008Z  
+**Submitted:** 2026-08-17T10:35:57.275Z  
 
-```cpp
+```java
 class Codechef {
     public static void main(String[] args) {
         // Loop to print numbers from 1 to 5
