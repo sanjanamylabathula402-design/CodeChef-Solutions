@@ -4,55 +4,70 @@
 
 ## Problem
 
-### Fill in the Blanks - Check Temperature Safety
+### Luggage Allowance Check
 
-Complete the following Java program by filling in the missing part so that it correctly checks if a machine's temperature is within the safe operating range and prints `"Temperature is within the safe limit."` when the condition is met.
+Write a program to check if a traveler's luggage meets the 20 kg weight limit. If it's within the limit (≤ 20 kg), it's allowed; otherwise, it exceeds the limit, and extra charges may apply. Also, calculate the excess weight using the (-) operator.
+
+ **Input:** 
+A single integer representing the weight of the luggage.
+
+### Sample 1:
+Input
+Output
 
 ```
-import java.util.*;
+18
+```
 
-class Codechef {
-    public static void main(String[] args) {
-        int machineTemperature = 75;
-        int maxSafeTemperature = 80;
+```
+Your luggage is within the allowed limit.
+Luggage check completed.
 
-        if (_____) {  // Fill in the blank
-            System.out.println("Temperature is within the safe limit.");
-        }
-    }
-}
+```
+
+### Sample 2:
+Input
+Output
+
+```
+25
+```
+
+```
+Your luggage exceeds the limit by 5 kg. Additional charges may apply.
+Luggage check completed.
 
 ```
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T09:58:44.448Z  
+**Submitted:** 2026-08-17T09:58:54.346Z  
 
-```cpp
+```java
 import java.util.*;
 
 class Codechef {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        // Taking age input from the user
-        int age = scanner.nextInt();
-        
-        int minSeniorAge = 60; // Minimum age required for discount
-        
-        // Checking eligibility for the discount
-        if (age >= minSeniorAge) {
-            System.out.println("You are eligible for a senior citizen discount!");
-            System.out.println("Enjoy your discounted movie ticket.");
+
+        // Taking user input for luggage weight
+        int luggageWeight = scanner.nextInt();
+
+        // Defining the maximum allowed weight
+        int maxWeight = 20;
+
+        // Checking if the luggage meets the weight restriction
+        if (luggageWeight <= maxWeight) {
+            System.out.println("Your luggage is within the allowed limit.");
         } else {
-            // Calculating how many more years are needed
-            int yearsLeft = minSeniorAge - age;
-            System.out.println("You are not eligible for a senior citizen discount.");
-            System.out.println("You need to wait " + yearsLeft + " more years to qualify.");
+            int excessWeight = luggageWeight - maxWeight;
+            System.out.println("Your luggage exceeds the limit by " + excessWeight + " kg. Additional charges may apply.");
         }
+
+        System.out.println("Luggage check completed.");
     }
 }
 
