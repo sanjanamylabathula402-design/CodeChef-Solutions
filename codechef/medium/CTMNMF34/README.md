@@ -4,21 +4,31 @@
 
 ## Problem
 
-### Incoming Requests
+### Logical Condition
 
-In this example, we are going to demonstrate a simple simulation of a server that continuously processes incoming requests using an infinite loop in Java. The server indicates that it is operational by repeatedly displaying the message "Server is running".
+Consider the following code. What will happen when the program is executed?
 
-**You will get a Time limit exceeded error because we have not terminated the loop.
-To get AC (Accepted) in this problem, use break inside the while loop — it immediately stops the loop. We’ll discuss more about break later on.**
+```
+class Codechef {
+    public static void main(String[] args) {
+        int num = 5;
+        while (num != 0) {
+            System.out.println("This will never end");
+            num++;
+        }
+    }
+}
+
+```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:23:59.994Z  
+**Submitted:** 2026-08-17T10:24:07.726Z  
 
-```java
+```cpp
 class Codechef {
     public static void main(String[] args) {
      
