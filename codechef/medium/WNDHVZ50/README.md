@@ -4,23 +4,27 @@
 
 ## Problem
 
-### Emergency Access Verification
+### Movie Night Eligibility Checker
 
-A security system grants emergency access to a restricted area if either the  **emergency keycode**  is entered correctly or the  **override code**  is used. Complete the program by filling in the missing parts to ensure the correct functionality.
+Write a program that checks if a package qualifies for same-day delivery based on two conditions: whether the destination is within the city `OR` the order was placed before `2` PM. The program should take user input for both factors and determine if the package meets the criteria.
 
  **Input:** 
-Take enteredCode as input.
 
+- A boolean (true or false) indicating whether the destination is within the city.
+- An integer representing the order time in 24-hour format.
 ### Sample 1:
 Input
 Output
 
 ```
-4321
+true  
+15  
+
 ```
 
 ```
-Access Granted: Emergency Entry Allowed.
+Package qualifies for same-day delivery.
+
 ```
 
 ### Sample 2:
@@ -28,23 +32,14 @@ Input
 Output
 
 ```
-9999
+false  
+16  
+
 ```
 
 ```
-Access Granted: Emergency Entry Allowed.
-```
+Package does not qualify for same-day delivery.
 
-### Sample 3:
-Input
-Output
-
-```
-1234
-```
-
-```
-Access Denied: Invalid Code.
 ```
 
 ## Solution
@@ -52,27 +47,25 @@ Access Denied: Invalid Code.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:00:09.134Z  
+**Submitted:** 2026-08-17T10:00:19.999Z  
 
 ```java
 import java.util.*;
 
 class Codechef {
     public static void main(String[] args) {
-        // Predefined emergency access codes
-        int emergencyKeycode = 4321;
-        int overrideCode = 9999;
+        Scanner scanner = new Scanner(System.in);
 
-        Scanner sc= new Scanner(System.in);
-        int enteredCode=sc.nextInt();
-        
-        // Checking if the entered code matches either emergencyKeycode or overrideCode
-        if (enteredCode == emergencyKeycode || enteredCode == overrideCode) {
-            System.out.println("Access Granted: Emergency Entry Allowed.");
+        // Taking user input for delivery conditions
+        boolean isWithinCity = scanner.nextBoolean();
+        int orderTime = scanner.nextInt();
+
+        // Checking eligibility for same-day delivery
+        if (isWithinCity || orderTime < 14) {
+            System.out.println("Package qualifies for same-day delivery.");
         } else {
-            System.out.println("Access Denied: Invalid Code.");
+            System.out.println("Package does not qualify for same-day delivery.");
         }
-
     }
 }
 
