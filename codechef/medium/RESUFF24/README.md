@@ -30,7 +30,7 @@ class Codechef {
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:05:26.167Z  
+**Submitted:** 2026-08-17T10:05:28.387Z  
 
 ```cpp
 class Codechef {
