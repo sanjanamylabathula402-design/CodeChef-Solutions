@@ -1,34 +1,32 @@
-import java.util.Scanner; 
+import java.util.Scanner; // Import the Scanner class to read user input
 
 class Codechef {
     public static void main(String[] args) {
         // Create a Scanner object to read input from the console
         Scanner scanner = new Scanner(System.in);
 
-        // Collect the traveler's name
-        String name = scanner.nextLine(); // Traveler's name (String)
+        // Read the Math score from the user
+        int mathScore = scanner.nextInt();
 
-        // Collect the number of travelers
-        int numTravelers = scanner.nextInt(); // Number of travelers (int)
+        // Read the Science score from the user
+        int scienceScore = scanner.nextInt();
 
-        // Collect the ticket price per traveler
-        double ticketPrice = scanner.nextDouble(); // Ticket price (double)
+        // Read the English score from the user
+        int englishScore = scanner.nextInt();
 
-        // Collect the total luggage weight in kilograms
-        float luggageWeight = scanner.nextFloat(); // Luggage weight (float)
+        // Calculate the total score by adding the individual scores
+        int totalScore = mathScore + scienceScore + englishScore;
 
-        // Collect meal preference as a boolean (true/false)
-        boolean includeMeals = scanner.nextBoolean(); // Meal preference (boolean)
+        // Calculate the average score by dividing the total by the number of subjects
+        double averageScore = totalScore / 3.0;
 
-        // Display the travel booking details
-        System.out.println("Booking Information:");
-        System.out.println("Name: " + name); // Display traveler's name
-        System.out.println("Number of Travelers: " + numTravelers); // Display the number of travelers
-        System.out.println("Ticket Price per Traveler: $" + ticketPrice); // Display ticket price per traveler
-        System.out.println("Luggage Weight: " + luggageWeight + " kg"); // Display luggage weight
-        System.out.println("Meals Included: " + includeMeals); // Display meal inclusion status
+        // Print the total score
+        System.out.println("Total Score: " + totalScore);
 
-        // Close the Scanner object to release system resources
+        // Print the average score
+        System.out.println("Average Score: " + averageScore);
+
+        // Close the Scanner to release system resources
         scanner.close();
     }
 }
