@@ -39,7 +39,7 @@ Rain Expected: false
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T09:05:17.436Z  
+**Submitted:** 2026-08-17T09:05:53.672Z  
 
 ```java
 import java.util.Scanner;
