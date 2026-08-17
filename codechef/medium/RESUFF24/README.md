@@ -4,25 +4,35 @@
 
 ## Problem
 
-### Check Admission Criteria
+### Checking for Promotion Eligibility
 
-In this example, we demonstrate how to use an  **if-else statement**  to check if a student is eligible for admission based on their  **academic percentage, entrance exam score, and participation in extracurricular activities**. This method helps in understanding conditional execution in Java.
-
- **When executed, the code will show:** 
+You are checking if a user is eligible for a special promotion. The user is eligible if they are  **18 or older**  AND they have a  **premium account**  OR if they are an  **admin**. Given the following conditions:
 
 ```
-Eligible for admission.
+class Codechef {
+    public static void main(String[] args) {
+        int age = 20; 
+        boolean hasPremium = true; 
+        boolean isAdmin = false; 
+
+        if ((age >= 18 && hasPremium) || isAdmin) {
+            System.out.println("Eligible for promotion"); 
+        } else {
+            System.out.println("Not eligible for promotion"); 
+        }
+    }
+}
 
 ```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:05:18.083Z  
+**Submitted:** 2026-08-17T10:05:23.804Z  
 
-```java
+```cpp
 class Codechef {
     public static void main(String[] args) {
         
