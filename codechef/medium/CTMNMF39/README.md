@@ -4,16 +4,36 @@
 
 ## Problem
 
-_Description not available._
+### MCQ - Guess the Correct Output
+
+What will be the output of the following Java program?
+
+```
+class Codechef {
+    public static void main(String[] args) {
+        int num = 1;
+
+        while (num <= 7) {
+            if (num % 4 == 0) {
+                System.out.println("Terminated at: " + num);
+                break;
+            }
+            System.out.println("Processing: " + num);
+            num++;
+        }
+    }
+}
+
+```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:23:35.051Z  
+**Submitted:** 2026-08-17T10:23:42.290Z  
 
-```java
+```cpp
 class Codechef {
     public static void main(String[] args) {
         int num = 10; // Start checking from 10
