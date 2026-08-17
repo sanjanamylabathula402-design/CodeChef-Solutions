@@ -2,19 +2,16 @@ import java.util.*;
 
 class Codechef {
     public static void main(String[] args) {
-       
-        Scanner sc = new Scanner(System.in);
-        int employeeSales = sc.nextInt();
-        int performanceThreshold = sc.nextInt();
+        Scanner scanner = new Scanner(System.in);
 
-        // Checking if employee sales exceed the performance threshold
-        if (employeeSales > performanceThreshold) {  // Fill in the blank
-            System.out.println("Performance Status: Exceeds Expectations."); // Fill in the blank
+        // Taking user input for the student's score
+        int score = scanner.nextInt();
+
+        // Checking eligibility for the advanced course
+        if (score > 60) {
+            System.out.println("You are eligible for the advanced course!");
         } else {
-            System.out.println("Performance Status: Below Expectations."); // Fill in the blank
+            System.out.println("You need to score higher to enroll in the advanced course.");
         }
-
-        // Indicating that the evaluation process is complete
-        System.out.println("Evaluation completed.");
     }
 }
