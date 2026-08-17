@@ -29,7 +29,7 @@ p1 equals null: false
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T16:08:07.332Z  
+**Submitted:** 2026-08-17T16:07:54.596Z  
 
 ```java
 class Point {
