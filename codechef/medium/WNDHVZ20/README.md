@@ -4,52 +4,65 @@
 
 ## Problem
 
-### Checking Server Status
+### Apple Distribution Check
 
-A company has an automated system that checks the server status. If the server is  **not "Online"**, a warning message should be displayed. Otherwise, a message confirming that the server is running normally should be shown.
+Write a program that takes the number of apples as input and determines whether they can be evenly divided among a group of friends. If the number of apples is evenly divisible by 4, they can be shared equally; otherwise, some apples will be left over.
 
- **Given Code:** 
+ **Input:** 
+A single integer representing the number of apples.
+
+### Sample 1:
+Input
+Output
 
 ```
-class Codechef {
-    public static void main(String[] args) {
-        // Variable representing server status
-        String serverStatus = "Maintenance";
+12
 
-        // Check if the server is not online
-        if (serverStatus != "Online") {
-            System.out.println("Warning! The server is not online.");
-        } else {
-            System.out.println("Server is running normally.");
-        }
-    }
-}
+```
+
+```
+The apples can be evenly shared among friends!
+
+```
+
+### Sample 2:
+Input
+Output
+
+```
+15
+
+```
+
+```
+Some apples will be left over after sharing!
 
 ```
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T09:40:21.275Z  
+**Submitted:** 2026-08-17T09:40:36.865Z  
 
-```cpp
+```java
 import java.util.*;
 
 class Codechef {
     public static void main(String[] args) {
-        // Variable representing payment status
-        String paymentStatus = "Pending";
+        // Create Scanner object to take user input
+        Scanner scanner = new Scanner(System.in);
 
-        // Check if the payment is completed
-        if (paymentStatus != "Completed") {
-            System.out.println("Your payment is still pending. Please complete it.");
+        // user to enter the number of apples
+        int apples = scanner.nextInt();
+
+        // Check if apples can be evenly divided by 4
+        if (apples % 4 == 0) {
+            System.out.println("The apples can be evenly shared among friends!");
         } else {
-            System.out.println("Your payment has been successfully completed.");
+            System.out.println("Some apples will be left over after sharing!");
         }
-
-        System.out.println("Payment status check completed.");
     }
 }
 
