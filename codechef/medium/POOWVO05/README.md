@@ -4,26 +4,30 @@
 
 ## Problem
 
-### Worked Example - Validating User Input
+### Validate number divisible by 3 and 5
 
-In this example, we demonstrate how to take user valid input and ensure it falls within the range 1 to 100 using a while loop.
+A program that ensures the user enters a  **positive number**  that is  **divisible by both 3 and 5**. The program will keep asking for input until a valid number is entered.
 
-When executed, the code will prompt the user to enter a number. Based on the input, it will display:
+ **Steps to Complete:** 
 
+- Prompt the user to enter a positive number.
+- Use a while loop to check if the number is divisible by both 3 and 5.
+- If the input is invalid, display an error message and ask for input again.
+- Once a valid number is entered, print a success message.
 ### Sample 1:
 Input
 Output
 
 ```
--3
-105
-50
+7
+12
+30
 ```
 
 ```
-Invalid input! Please enter a number between 1 and 100.
-Invalid input! Please enter a number between 1 and 100.
-Valid number entered: 50
+Invalid input! Enter a number divisible by both 3 and 5.
+Invalid input! Enter a number divisible by both 3 and 5.
+Valid input! 30 is divisible by both 3 and 5.
 ```
 
 ## Solution
@@ -31,26 +35,26 @@ Valid number entered: 50
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:26:15.503Z  
+**Submitted:** 2026-08-17T10:27:23.441Z  
 
 ```java
-import java.util.Scanner;
+import java.util.Scanner; 
 
 class Codechef {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // Create a Scanner object for user input
-        int number; // Declare a variable to store user input
-
-        // Step 1: Input validation loop
-        // Keeps prompting until a valid number (1-100) is entered
-        while ((number = scanner.nextInt()) < 1 || number > 100) {
-            System.out.println("Invalid input! Please enter a number between 1 and 100: ");
+        Scanner scanner = new Scanner(System.in); 
+        int number; 
+        while (true) {
+            number = scanner.nextInt(); 
+            if (number % 3 == 0 && number % 5 == 0) {
+                break; 
+            } else {
+                System.out.println("Invalid input! Enter a number divisible by both 3 and 5."); 
+            }
         }
-
-        // Step 2: Display the valid input
-        System.out.println("Valid number entered: " + number);
-
-        scanner.close(); // Close the scanner to prevent resource leaks
+        System.out.println("Valid input! " + number + " is divisible by both 3 and 5.");
+        
+        scanner.close(); 
     }
 }
 ```
