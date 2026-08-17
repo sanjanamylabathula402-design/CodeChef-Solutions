@@ -20,7 +20,7 @@ First multiple of 7 found: 14
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:40:38.669Z  
+**Submitted:** 2026-08-17T10:40:48.292Z  
 
 ```java
 class Codechef {
@@ -29,8 +29,6 @@ class Codechef {
 
         // Loop through numbers from 10 to 20
         for (int i = 10; i <= range; i++) {
-            
-            // Check if the number is a multiple of 7
             if (i % 7 == 0) {
                 System.out.println("First multiple of 7 found: " + i); // Print the first multiple
                 break; // Exit the loop immediately
