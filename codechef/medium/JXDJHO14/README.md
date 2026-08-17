@@ -4,16 +4,15 @@
 
 ## Problem
 
-### Display Employee Details
-- Let’s practice how to override the toString() method to produce meaningful and user-friendly output from objects.
-- In this problem, you are given an Employee class that stores details such as the employee’s name, ID, and designation. By default, printing an object would result in unhelpful output like Employee@15db9742.
+### Worked Example - Display User Information
+- In this example, we demonstrate how to override the toString() method to provide a meaningful string representation of an object in Java.
+- By default, printing an object displays its class name followed by a memory address. To make the output more informative, the toString() method is overridden in the User class to return the user's name and age in a readable format.
+- When we print the user1 object, the overridden toString() method is automatically invoked, producing human-friendly output.
 
-To make the output informative, your  **task**  is to  **override**  the `toString()` method so that it returns a well-formatted string showing the employee's information.
-
- **Expected Output:** 
+ **When executed, the code will show:** 
 
 ```
-Employee[name=Bob Smith, id=1001, designation=Software Engineer]
+User Details: { Name: 'Alice', Age: '25' }
 
 ```
 
@@ -22,33 +21,36 @@ Employee[name=Bob Smith, id=1001, designation=Software Engineer]
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T16:10:44.355Z  
+**Submitted:** 2026-08-17T16:09:52.675Z  
 
 ```java
-class Employee {
+class User {
+    // Attributes of the User class
     String name;
-    int id;
-    String designation;
+    String age;
 
-    public Employee(String name, int id, String designation) {
+    // Constructor to initialize User object
+    User(String name, String age) {
         this.name = name;
-        this.id = id;
-        this.designation = designation;
+        this.age = age;
     }
 
-    // Implement the toString method here
+    // Overriding toString() to provide custom string representation
     @Override
-  public String toString() {
-        return "Employee[name=" + name + ", id=" + id + ", designation=" + designation + "]";
-  }
+    public String toString() {
+        // Returning a formatted string with user details
+        return "User Details: { " + "Name: '" + name + "', " + "Age: '" + age + "' }";
+    }
 }
 
 class Codechef {
     public static void main(String[] args) {
-
-        Employee employee1 = new Employee("Bob Smith", 1001, "Software Engineer");
+    
+        User user1 = new User("Alice", "25");
         
-        System.out.println(employee1);
+        // Printing the user1 object, which will invoke the toString() method
+        System.out.println(user1);
+
     }
 }
 ```
