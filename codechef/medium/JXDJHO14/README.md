@@ -4,15 +4,16 @@
 
 ## Problem
 
-### Worked Example - Display User Information
-- In this example, we demonstrate how to override the toString() method to provide a meaningful string representation of an object in Java.
-- By default, printing an object displays its class name followed by a memory address. To make the output more informative, the toString() method is overridden in the User class to return the user's name and age in a readable format.
-- When we print the user1 object, the overridden toString() method is automatically invoked, producing human-friendly output.
+### Display Employee Details
+- Let’s practice how to override the toString() method to produce meaningful and user-friendly output from objects.
+- In this problem, you are given an Employee class that stores details such as the employee’s name, ID, and designation. By default, printing an object would result in unhelpful output like Employee@15db9742.
 
- **When executed, the code will show:** 
+To make the output informative, your  **task**  is to  **override**  the `toString()` method so that it returns a well-formatted string showing the employee's information.
+
+ **Expected Output:** 
 
 ```
-User Details: { Name: 'Alice', Age: '25' }
+Employee[name=Bob Smith, id=1001, designation=Software Engineer]
 
 ```
 
@@ -21,36 +22,33 @@ User Details: { Name: 'Alice', Age: '25' }
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T16:09:52.675Z  
+**Submitted:** 2026-08-17T16:41:46.316Z  
 
 ```java
-class User {
-    // Attributes of the User class
+class Employee {
     String name;
-    String age;
+    int id;
+    String designation;
 
-    // Constructor to initialize User object
-    User(String name, String age) {
+    public Employee(String name, int id, String designation) {
         this.name = name;
-        this.age = age;
+        this.id = id;
+        this.designation = designation;
     }
 
-    // Overriding toString() to provide custom string representation
+    // Implement the toString method here
     @Override
-    public String toString() {
-        // Returning a formatted string with user details
-        return "User Details: { " + "Name: '" + name + "', " + "Age: '" + age + "' }";
-    }
+  public String toString() {
+        return "Employee[name=" + name + ", id=" + id + ", designation=" + designation + "]";
+  }
 }
 
 class Codechef {
     public static void main(String[] args) {
-    
-        User user1 = new User("Alice", "25");
-        
-        // Printing the user1 object, which will invoke the toString() method
-        System.out.println(user1);
 
+        Employee employee1 = new Employee("Bob Smith", 1001, "Software Engineer");
+        
+        System.out.println(employee1);
     }
 }
 ```
