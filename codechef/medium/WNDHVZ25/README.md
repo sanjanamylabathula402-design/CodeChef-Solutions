@@ -44,7 +44,7 @@ You need to score higher to enroll in the advanced course.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T09:49:27.369Z  
+**Submitted:** 2026-08-17T09:52:23.317Z  
 
 ```java
 import java.util.*;
