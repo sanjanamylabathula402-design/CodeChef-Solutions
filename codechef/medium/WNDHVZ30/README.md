@@ -4,48 +4,72 @@
 
 ## Problem
 
-### Fill in the Blanks - Check for Low Inventory
+### Daily Water Intake Check
 
-Complete the following Java program by filling in the missing part so that it correctly checks if the stock level is below the reorder threshold and prints  **"Stock is low. Time to reorder!"**  when the condition is met.
+Write a program that takes the amount of water a person drank in the morning and the amount they drank in the evening. The program calculates the total daily water intake and checks if it is less than `2000` ml, which means the person needs to drink more water to stay hydrated.
+
+ **Input:** 
+
+- A single integer representing the amount of water consumed in the morning (in ml).
+- A single integer representing the amount of water consumed in the evening (in ml).
+
+Run the code with different values to check if you're drinking enough water!
+
+### Sample 1:
+Input
+Output
 
 ```
-import java.util.*;
+800
+900
+```
 
-class Codechef {
-    public static void main(String[] args) {
-        int stockLevel = 8;
-        int reorderThreshold = 10;
+```
+You need to drink more water to stay hydrated!
 
-        if (_____) {  // Fill in the blank
-            System.out.println("Stock is low. Time to reorder!");
-        }
-    }
-}
+```
+
+### Sample 2:
+Input
+Output
+
+```
+1200
+1000
+```
+
+```
+Great job! You have met your daily water intake goal!
 
 ```
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T09:55:40.530Z  
+**Submitted:** 2026-08-17T09:56:12.073Z  
 
-```cpp
+```java
 import java.util.*;
 
 class Codechef {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        
+        // Taking user input for morning and evening water intake
+        int morningWater = scanner.nextInt();
+        
+        int eveningWater = scanner.nextInt();
+        
+        // Calculating total water intake
+        int totalWater = morningWater + eveningWater;
 
-        // Taking user input for the student's score
-        int score = scanner.nextInt();
-
-        // Checking eligibility for the advanced course
-        if (score > 60) {
-            System.out.println("You are eligible for the advanced course!");
+        // Checking if total intake is less than 2000 ml
+        if (totalWater < 2000) {
+            System.out.println("You need to drink more water to stay hydrated!");
         } else {
-            System.out.println("You need to score higher to enroll in the advanced course.");
+            System.out.println("Great job! You have met your daily water intake goal!");
         }
     }
 }
