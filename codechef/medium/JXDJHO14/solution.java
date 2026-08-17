@@ -1,29 +1,26 @@
-class User {
-    // Attributes of the User class
+class Employee {
     String name;
-    String age;
+    int id;
+    String designation;
 
-    // Constructor to initialize User object
-    User(String name, String age) {
+    public Employee(String name, int id, String designation) {
         this.name = name;
-        this.age = age;
+        this.id = id;
+        this.designation = designation;
     }
 
-    // Overriding toString() to provide custom string representation
+    // Implement the toString method here
     @Override
-    public String toString() {
-        // Returning a formatted string with user details
-        return "User Details: { " + "Name: '" + name + "', " + "Age: '" + age + "' }";
-    }
+  public String toString() {
+        return "Employee[name=" + name + ", id=" + id + ", designation=" + designation + "]";
+  }
 }
 
 class Codechef {
     public static void main(String[] args) {
-    
-        User user1 = new User("Alice", "25");
-        
-        // Printing the user1 object, which will invoke the toString() method
-        System.out.println(user1);
 
+        Employee employee1 = new Employee("Bob Smith", 1001, "Software Engineer");
+        
+        System.out.println(employee1);
     }
 }
