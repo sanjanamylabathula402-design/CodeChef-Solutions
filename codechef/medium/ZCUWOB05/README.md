@@ -4,47 +4,57 @@
 
 ## Problem
 
-### MCQ - For Loop with Range
+### Print multiples of a number in a range
 
-Complete the following Java program to print "I love Java" followed by numbers from the range using a for loop with range.
+Write a program that iterates through a range of numbers and  **prints the multiples of a user-defined number**.
 
-```
-class Codechef {
-    public static void main(String[] args) {
-        for (___ ; ___ ; ___) { // Fill in the blanks
-            System.out.println("I love Java " + i);
-        }
-    }
-}
+ **Steps to Complete:** 
 
-```
-
-Expected Output:
+- Use a for loop to iterate from 1 to 10
+- Inside the loop, use an if condition to check if the number is a multiple of a given number.
+- If the condition is met, print the number.
+### Sample 1:
+Input
+Output
 
 ```
-I love Java 1  
-I love Java 2  
-I love Java 3  
-I love Java 4  
+3
+```
 
+```
+3  
+6  
+9
 ```
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:36:07.729Z  
+**Submitted:** 2026-08-17T10:36:35.163Z  
 
-```cpp
+```java
+import java.util.Scanner;
+
 class Codechef {
     public static void main(String[] args) {
-        // Loop to print numbers from 1 to 5
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("I love coding " + i); // Print statement with iteration value
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int multipleOf = sc.nextInt();
+         
+        // For loop with range from 1 to 10
+        for (int i = 1; i <= 10; i++) { 
+            
+            if (i % multipleOf == 0) { 
+                System.out.println(i);
+            }
         }
+        sc.close();
     }
 }
+
 ```
 
 ---
