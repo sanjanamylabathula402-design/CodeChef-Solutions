@@ -2,19 +2,17 @@ import java.util.*;
 
 class Codechef {
     public static void main(String[] args) {
-        // Predefined emergency access codes
-        int emergencyKeycode = 4321;
-        int overrideCode = 9999;
+        Scanner scanner = new Scanner(System.in);
 
-        Scanner sc= new Scanner(System.in);
-        int enteredCode=sc.nextInt();
-        
-        // Checking if the entered code matches either emergencyKeycode or overrideCode
-        if (enteredCode == emergencyKeycode || enteredCode == overrideCode) {
-            System.out.println("Access Granted: Emergency Entry Allowed.");
+        // Taking user input for delivery conditions
+        boolean isWithinCity = scanner.nextBoolean();
+        int orderTime = scanner.nextInt();
+
+        // Checking eligibility for same-day delivery
+        if (isWithinCity || orderTime < 14) {
+            System.out.println("Package qualifies for same-day delivery.");
         } else {
-            System.out.println("Access Denied: Invalid Code.");
+            System.out.println("Package does not qualify for same-day delivery.");
         }
-
     }
 }
