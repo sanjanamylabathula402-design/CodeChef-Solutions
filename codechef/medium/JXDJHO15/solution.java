@@ -1,26 +1,29 @@
-class Employee {
-    String name;
-    int id;
-    String designation;
+import java.util.Scanner;
 
-    public Employee(String name, int id, String designation) {
-        this.name = name;
-        this.id = id;
-        this.designation = designation;
+class Book {
+    String title;
+    String author;
+    int year;
+
+    public Book(String title, String author, int year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
     }
 
-    // Implement the toString method here
     @Override
-  public String toString() {
-        return "Employee[name=" + name + ", id=" + id + ", designation=" + designation + "]";
-  }
+    public String toString() {
+        return "Book[" + "title=" + title +", author=" + author +", year="+year +"]";
+    }
 }
-
 class Codechef {
     public static void main(String[] args) {
-
-        Employee employee1 = new Employee("Bob Smith", 1001, "Software Engineer");
-        
-        System.out.println(employee1);
+        Scanner scanner = new Scanner(System.in);
+        String title = scanner.nextLine();
+        String author = scanner.nextLine();
+        int year = scanner.nextInt();
+        Book book1 = new Book(title, author, year);
+        System.out.println(book1); 
+        scanner.close();
     }
 }
