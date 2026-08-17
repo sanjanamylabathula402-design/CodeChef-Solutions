@@ -4,16 +4,34 @@
 
 ## Problem
 
-_Description not available._
+### Fill in the Blanks - Check for Low Inventory
+
+Complete the following Java program by filling in the missing part so that it correctly checks if the stock level is below the reorder threshold and prints  **"Stock is low. Time to reorder!"**  when the condition is met.
+
+```
+import java.util.*;
+
+class Codechef {
+    public static void main(String[] args) {
+        int stockLevel = 8;
+        int reorderThreshold = 10;
+
+        if (_____) {  // Fill in the blank
+            System.out.println("Stock is low. Time to reorder!");
+        }
+    }
+}
+
+```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T09:52:25.598Z  
+**Submitted:** 2026-08-17T09:55:35.304Z  
 
-```java
+```cpp
 import java.util.*;
 
 class Codechef {
