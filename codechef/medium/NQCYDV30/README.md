@@ -52,7 +52,7 @@ x is greater than 5
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T16:55:12.470Z  
+**Submitted:** 2026-08-17T16:55:10.442Z  
 
 ```cpp
 class CodeChef {
