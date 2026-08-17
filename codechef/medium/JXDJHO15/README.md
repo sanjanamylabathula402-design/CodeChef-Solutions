@@ -31,7 +31,7 @@ Book[title=Atomic Habits, author=James Clear, year=2018]
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T16:52:24.911Z  
+**Submitted:** 2026-08-17T16:52:49.834Z  
 
 ```java
 import java.util.Scanner;
@@ -46,7 +46,6 @@ class Book {
         this.author = author;
         this.year = year;
     }
-
     @Override
     public String toString() {
         return "Book[" + "title=" + title +", author=" + author +", year="+year +"]";
