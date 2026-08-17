@@ -4,16 +4,36 @@
 
 ## Problem
 
-_Description not available._
+### Fruit Selector
+
+You are tasked with implementing a simple program that uses a  **switch statement**  to print the name of a fruit based on a given `fruitCode`.
+
+```
+class Codechef {
+    public static void main(String[] args) {
+        int fruitCode = 2;
+
+        switch (fruitCode) {
+            case 1:
+                System.out.println("Apple");
+            case 2:
+                System.out.println("Banana");
+            case 3:
+                System.out.println("Cherry");
+        }
+    }
+}
+
+```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T10:06:03.594Z  
+**Submitted:** 2026-08-17T10:06:07.987Z  
 
-```java
+```cpp
 class Codechef {
     public static void main(String[] args) {
         // Initialize the variable 'time' to represent the time of day
