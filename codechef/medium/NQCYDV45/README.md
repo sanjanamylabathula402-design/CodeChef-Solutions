@@ -4,37 +4,16 @@
 
 ## Problem
 
-### Number is Even or Odd
-
-Jason is writing a program to check if a number is even, but it is giving him some error.
-
-Jason’s Code is Below:
-
-```
-int number = 4;
-if (number % 2 = 0) { 
-    System.out.println("Even");
-} else {
-    System.out.println("Odd");
-}
-
-```
-
- **Expected Output** 
-
-```
-Even
-
-```
+_Description not available._
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T16:56:52.002Z  
+**Submitted:** 2026-08-17T16:56:42.767Z  
 
-```cpp
+```java
 class CodeChef {
     public static void main(String[] args) {
     // Initialize the string
