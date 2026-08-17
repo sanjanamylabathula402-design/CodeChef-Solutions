@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class Codechef {
     public static void main(String[] args) {
-        // Create a Scanner object to read user input
+
         Scanner scanner = new Scanner(System.in);
 
         // Collect the temperature as a float
