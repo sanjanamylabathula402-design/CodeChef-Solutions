@@ -31,7 +31,7 @@ Book[title=Atomic Habits, author=James Clear, year=2018]
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T16:52:49.834Z  
+**Submitted:** 2026-08-17T16:52:58.778Z  
 
 ```java
 import java.util.Scanner;
