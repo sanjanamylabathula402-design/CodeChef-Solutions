@@ -25,7 +25,7 @@ Updated Marks:
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:13:19.665Z  
+**Submitted:** 2026-08-19T05:13:34.816Z  
 
 ```java
 class Codechef {
