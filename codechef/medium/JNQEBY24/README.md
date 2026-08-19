@@ -4,16 +4,78 @@
 
 ## Problem
 
-_Description not available._
+### Choose the Correct Code
+
+Which of the following code snippets demonstrates correct method overloading in Java?
+
+A.
+
+```
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(int a, int b) {
+        return a + b;
+    }
+}
+
+```
+
+B.
+
+```
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+```
+
+C.
+
+```
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(double a, double b) {
+        return a + b;
+    }
+}
+
+```
+
+D.
+
+```
+class Calculator {
+    void add(int a, int b) {
+        System.out.println(a + b);
+    }
+
+    void add(int x, int y) {
+        System.out.println(x + y);
+    }
+}
+
+```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:50:00.763Z  
+**Submitted:** 2026-08-19T05:50:08.596Z  
 
-```java
+```cpp
 // Class with overloaded greet() methods
 class Greet {
 
