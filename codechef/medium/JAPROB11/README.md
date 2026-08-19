@@ -46,7 +46,7 @@ Implement the following functions to return these questions as a `ArrayList` of 
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T06:43:03.786Z  
+**Submitted:** 2026-08-19T06:43:16.945Z  
 
 ```cpp
     }
