@@ -4,51 +4,62 @@
 
 ## Problem
 
-### Output of Method Without Return Type
+### Library Information Display
 
-What will be the output of the following code, which demonstrates the syntax of methods without parameters and return types?
+Write a program that prompts the user to enter the library name, the number of books, and the library address. Then, use a method with no parameters and no return type to display the entered information.
+
+ **Tasks:** 
+
+- Create a method displayLibraryInfo() that: Has no return type (void). Takes no parameters. Prompt the user to enter the library name, number of books, and address. Displays the library name, number of books, and address.
+- In the main() method: Call displayLibraryInfo() to display the entered information.
+### Sample 1:
+Input
+Output
 
 ```
-public class Codechef {
+Central Library
+5000
+Main Street
+```
 
-    // Static method without parameters and return type
-    public static void printMessage() {
-        System.out.println("Hello, World!");  // Method without parameters and return type
-    }
-
-    public static void main(String[] args) {
-        // Calling the static method directly
-        printMessage();  // Calling the method without parameters and return type
-    }
-}
-
+```
+Library Information:
+Library Name: Central Library
+Number of Books: 5000
+Library Address: Main Street
 ```
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:36:09.513Z  
+**Submitted:** 2026-08-19T05:36:24.599Z  
 
-```cpp
+```java
+import java.util.Scanner;
+
 class Codechef {
-    // Static method without parameters and return type
-    public static void printMessage() {
-        System.out.println("Hello, welcome to Java!");
+
+    // Method without parameters and return type
+    public static void displayLibraryInfo() {
+        // Create a scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+        String libraryName = scanner.nextLine();
+        int numberOfBooks = scanner.nextInt();
+        scanner.nextLine();  // consume the newline character left by nextInt()
+        String libraryAddress = scanner.nextLine();
+
+        // Displaying the library information
+        System.out.println("Library Information:");
+        System.out.println("Library Name: " + libraryName);
+        System.out.println("Number of Books: " + numberOfBooks);
+        System.out.println("Library Address: " + libraryAddress);
     }
-    
-    // Static method with no return type and no parameters
-    public static void getWelcomeMessage() {
-        System.out.println("Welcome to the world of Java!");
-    }
-    
+
     public static void main(String[] args) {
-        // Calling static method without parameters and return type
-        printMessage();
-        
-        // Calling static method with no return type and no parameters
-        getWelcomeMessage();
+        // Calling the method to display library information
+        displayLibraryInfo();
     }
 }
 
