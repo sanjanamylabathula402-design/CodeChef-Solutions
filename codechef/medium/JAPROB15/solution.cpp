@@ -1,28 +1,18 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+        ArrayList<String[]> questions = getJavaQuestions();
+        Collections.shuffle(questions);
+        Scanner sc = new Scanner(System.in);
+        int score = 0;
+        int question_number = 1;
 
-public class Codechef {
-
-    // Task - Complete the below functions
-    //--------------------------------------------------------------
-    public static int checkAnswer(String userAnswer, String correctAnswer) {
-
-        if (________) { // Check if the userAnswer is equal to correct answer
-            System.out.println("Answer is correct!");
-            
-
-            // return 1
-
-        } else {
-
-            System.out.println("Your answer is wrong! The correct answer is " + correctAnswer + ".");
-            
-            
-            //  return 0;
+        for (String[] question : questions) {
+            displayQuestion(question, question_number);
+            countdownTimer();
+            String userAnswer = getUserAnswer(sc);
+            int result = checkAnswer(userAnswer, question[5]);
+            score = updateScore(score, result);
+            question_number++;
         }
 
+        System.out.println("\nYour final score is: " + score + " / " + questions.size());
+        System.out.println("Thanks for playing!");
     }
-
-
-    public static int updateScore(int score, int result) {
