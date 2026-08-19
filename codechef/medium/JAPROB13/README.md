@@ -31,7 +31,7 @@ D) override
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T06:44:28.443Z  
+**Submitted:** 2026-08-19T06:44:36.412Z  
 
 ```cpp
         question[3] = optC;   
@@ -52,11 +52,6 @@ D) override
         }
         System.out.println("\n");
     }
-
-    public static void main(String[] args) {
-        playQuiz();
-    }
-}
 ```
 
 ---
