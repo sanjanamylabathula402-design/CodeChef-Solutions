@@ -35,7 +35,7 @@ class Codechef {
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:40:03.057Z  
+**Submitted:** 2026-08-19T05:40:05.244Z  
 
 ```cpp
 // Class representing a student using instance variables
