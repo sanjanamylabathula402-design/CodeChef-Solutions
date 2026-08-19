@@ -20,20 +20,19 @@ Array for city names declared but not yet initialized.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:08:54.784Z  
+**Submitted:** 2026-08-19T05:08:59.750Z  
 
 ```java
 // This is a class named Codechef
 class Codechef {
     public static void main(String[] args) {
+        // Declare an array to store city names
+        String[] cityNames;
         
-        // Declare an array 
-
-        
+        // The array is declared but not initialized. It can be initialized later as needed.
         System.out.println("Array for city names declared but not yet initialized.");
     }
 }
-
 
 ```
 
