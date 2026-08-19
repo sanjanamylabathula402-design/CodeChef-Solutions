@@ -4,11 +4,11 @@
 
 ## Problem
 
-### Storing City Names for a Travel Planner
+### Declare an ArrayList of City Name
 
-In this example, we demonstrate how to  **declare an ArrayList**  in Java and show that it can be initialized later as needed.
+A program needs to declare an ArrayList for city names but not initialize it immediately. Complete the program by filling in the missing parts to ensure it correctly declares an array for city names.
 
- **When executed, the code will show:** 
+ **Expected Output:** 
 
 ```
 ArrayList for city names declared but not yet initialized.
@@ -20,20 +20,22 @@ ArrayList for city names declared but not yet initialized.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:17:01.446Z  
+**Submitted:** 2026-08-19T05:17:12.489Z  
 
 ```java
+// This is a class named Codechef
 import java.util.ArrayList;
 
 class Codechef {
     public static void main(String[] args) {
-        // Declare an ArrayList for storing city names (not yet initialized)
-        ArrayList<String> cities;
+        // Declare an ArrayList to store city names
+        ArrayList<String> cityNames;
 
-        // Display a message
+        // The ArrayList is declared but not initialized. It can be initialized later as needed.
         System.out.println("ArrayList for city names declared but not yet initialized.");
     }
 }
+
 ```
 
 ---
