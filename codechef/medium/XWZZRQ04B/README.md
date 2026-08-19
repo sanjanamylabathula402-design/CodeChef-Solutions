@@ -4,16 +4,36 @@
 
 ## Problem
 
-_Description not available._
+### MCQ - Find the output
+
+What will be the output of the following Java program if the user enters the values: 5 10 15 20 25?
+
+```
+import java.util.Scanner;
+
+class Codechef {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[5];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println(arr[2]);
+    }
+}
+
+```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:16:21.814Z  
+**Submitted:** 2026-08-19T05:16:27.277Z  
 
-```java
+```cpp
 import java.util.Scanner;
 
 class Codechef {
