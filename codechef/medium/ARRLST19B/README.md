@@ -32,7 +32,7 @@ class Codechef {
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:19:25.145Z  
+**Submitted:** 2026-08-19T05:19:27.534Z  
 
 ```cpp
 import java.util.ArrayList;
