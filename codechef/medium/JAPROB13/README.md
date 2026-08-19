@@ -31,7 +31,7 @@ D) override
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T06:44:36.412Z  
+**Submitted:** 2026-08-19T06:44:38.253Z  
 
 ```cpp
         question[3] = optC;   
