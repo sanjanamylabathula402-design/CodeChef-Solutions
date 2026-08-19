@@ -35,7 +35,7 @@ class Codechef {
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:22:59.210Z  
+**Submitted:** 2026-08-19T05:23:02.620Z  
 
 ```cpp
 import java.util.ArrayList;
