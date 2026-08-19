@@ -21,7 +21,7 @@ Account Balance: 1500.0
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:46:45.524Z  
+**Submitted:** 2026-08-19T05:46:44.517Z  
 
 ```java
 class Codechef {
