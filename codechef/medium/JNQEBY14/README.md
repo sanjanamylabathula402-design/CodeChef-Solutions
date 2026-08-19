@@ -4,16 +4,18 @@
 
 ## Problem
 
-_Description not available._
+### Parameterized Constructor in Java
+
+Which of the following statements about parameterized constructors in Java is true?
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:45:54.640Z  
+**Submitted:** 2026-08-19T05:46:11.194Z  
 
-```java
+```cpp
 class Codechef {
     // Instance variables (fields) for the Codechef class
     String title;
