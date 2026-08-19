@@ -4,16 +4,28 @@
 
 ## Problem
 
-_Description not available._
+### Default Enrollment Status
+
+In this task, you need to print the default value of a `boolean` array element. Complete the following code:
+
+```
+class Codechef {
+    public static void main(String[] args) {
+        boolean[] status = new boolean[3];
+        System.out.println("Default Enrollment Status: " + __); //fill in the blank
+    }
+}
+
+```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:15:19.825Z  
+**Submitted:** 2026-08-19T05:15:29.293Z  
 
-```java
+```cpp
 class Codechef {
     public static void main(String[] args) {
         // Arrays to store default employee data
