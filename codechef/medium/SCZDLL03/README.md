@@ -20,7 +20,7 @@ Let's solidify your understanding of  **validating object creation**  with a wor
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T10:06:36.755Z  
+**Submitted:** 2026-08-19T10:06:51.170Z  
 
 ```java
 import java.util.Scanner;
@@ -42,7 +42,7 @@ class Circle {
     }
 }
 
-public class Codechef {
+class Codechef {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
