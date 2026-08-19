@@ -1,39 +1,27 @@
-import java.util.Scanner;
+class Employee {
+    private double salary;
 
-class Circle {
-    private double radius;
-
-    // Constructor with validation
-    public Circle(double radius) {
-        if (radius <= 0) {
-            throw new IllegalArgumentException("Radius must be positive.");
+    public Employee(double salary) {
+        if (salary < 0) {
+            throw new IllegalArgumentException("Salary must be non-negative.");
         }
-        this.radius = radius;
+        this.salary = salary;
     }
 
-    // Getter method
-    public double getRadius() {
-        return radius;
+    public double getSalary() {
+        return salary;
     }
-}
 
-class Codechef {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        if (scanner.hasNextDouble()) {
-            double r = scanner.nextDouble();
-            
-            try {
-                // Attempting to create a Circle object
-                Circle c = new Circle(r);
-                System.out.println("Circle created with radius: " + c.getRadius());
-            } catch (IllegalArgumentException e) {
-                // Catching the exception if radius is invalid
-                System.out.println(e.getMessage());
-            }
+        try {
+            Employee employee1 = new Employee(50000.0);
+            System.out.println("Employee 1 Salary: " + employee1.getSalary());
+
+            Employee employee2 = new Employee(-1000.0);
+            System.out.println("Employee 2 Salary: " + employee2.getSalary()); // This line should not be reached
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Exception caught: " + e.getMessage());
         }
-        
-        scanner.close();
     }
 }
