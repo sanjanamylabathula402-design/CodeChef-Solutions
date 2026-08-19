@@ -4,16 +4,33 @@
 
 ## Problem
 
-### Fill in the blanks - Car Details
+### Book Information Collector
 
-Complete the missing parts in the code to demonstrate default field initialization in Java classes.
+Write a program to store and display details of multiple books. The program should use a class with instance variables to store the title and author of a book. Use a  **loop**  to take input dynamically for a given number of books and store their details.
 
- **Expected Output:** 
+ **Input:** 
+
+- An integer representing the number of books.
+- For each book, input: A string representing the book title. A string representing the book author.
+### Sample 1:
+Input
+Output
 
 ```
-Make: null
-Model: null
-Year: 0
+2
+Java Programming
+James Smith
+Data Structures
+Alice Brown
+```
+
+```
+Book 1 Details:
+Title: Java Programming
+Author: James Smith
+Book 2 Details:
+Title: Data Structures
+Author: Alice Brown
 
 ```
 
@@ -22,30 +39,41 @@ Year: 0
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:41:12.059Z  
+**Submitted:** 2026-08-19T05:41:33.546Z  
 
 ```java
-class Car {
-    // Instance variables (fields) for make, model, and year
-    String make;  // Default value is null
-    String model; // Default value is null
-    int year;     // Default value is 0
+import java.util.Scanner; // Import Scanner for user input
 
-    public void displayInfo() {
-        // Print the values of instance variables
-        System.out.println("Make: " + make);   // Prints the value of 'make'
-        System.out.println("Model: " + model); // Prints the value of 'model'
-        System.out.println("Year: " + year);   // Prints the value of 'year'
-    }
+// Book class with default field initialization
+class Book {
+    String title = "Unknown Title"; // Default value for title
+    String author = "Unknown Author"; // Default value for author
 }
 
 class Codechef {
     public static void main(String[] args) {
-        // Create an object of the Car class
-        Car car = new Car();  // Object creation without explicitly setting field values
+        Scanner sc = new Scanner(System.in); // Create Scanner object
         
-        // Display car details using the displayInfo method
-        car.displayInfo();  // Calling the method to display information
+        // Prompt user to enter the number of books
+        int numBooks = sc.nextInt();
+        sc.nextLine(); // Consume the newline character left by nextInt()
+
+        // For loop to input details for multiple books
+        for (int i = 1; i <= numBooks; i++) {
+            Book myBook = new Book(); // Create a new Book object
+
+            // Prompt user to enter book details
+            myBook.title = sc.nextLine(); // Assign user input to title
+            
+            myBook.author = sc.nextLine(); // Assign user input to author
+            // Display book details
+            System.out.println("\nBook " + i + " Details:");
+            System.out.println("Title: " + myBook.title);
+            System.out.println("Author: " + myBook.author);
+            System.out.println(); // Adding a blank line for readability
+        }
+
+        sc.close(); // Close scanner
     }
 }
 
