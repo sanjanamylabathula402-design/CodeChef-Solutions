@@ -4,26 +4,40 @@
 
 ## Problem
 
-### Worked Example - Instance Variables in Java
+### Instance Variables in Java - Output Based Question
 
-This example demonstrates how  **instance variables**  store unique data for each object in Java. Each student object has a unique  **ID**  and  **name**, stored as instance variables, ensuring that every object maintains its own data independently.
-
- **Expected Output:** 
+What will be the output of the following code, which demonstrates the usage of instance variables in Java?
 
 ```
-Student 1: ID = 1, Name = Rahul  
-Student 2: ID = 2, Name = Sneha  
+class Student {
+    String name = "John";  // Instance variable
+    int age = 26; // Instance variable
+
+    public void display() {
+        System.out.println(name); 
+    }
+}
+
+class Codechef {
+    public static void main(String[] args) {
+        Student student1 = new Student(); 
+        Student student2 = new Student(); 
+
+        student1.display(); 
+        student2.age();  
+    }
+}
 
 ```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:39:52.881Z  
+**Submitted:** 2026-08-19T05:40:03.057Z  
 
-```java
+```cpp
 // Class representing a student using instance variables
 class Codechef {
     // Step 1: Declare instance variables (fields)
