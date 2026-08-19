@@ -4,16 +4,22 @@
 
 ## Problem
 
-### Worked Example - Using super Keyword
+### Vehicle Info Displayer
 
-In this example, we demonstrate how inheritance in Java allows a subclass to reuse code from a parent class. The extends keyword is used to create the subclass, `super()` is used to call the parent class constructor, and `super.methodName()` is used to call a method from the parent class.
+Write a Java program with a base class `Vehicle` and a subclass `Car`.The subclass should call the parent constructor and method using `super()`, then print an additional message.
 
- **When executed, the code will show:** 
+ **Steps to Follow:** 
+
+- Create a class Vehicle with a constructor and a method displayType().
+- Create a class Car that extends Vehicle and uses super() to call the parent constructor and method.
+- Add a message in Car to print "It has four wheels."
+- In the main() method, create a Car object and call the method to display both messages.
+
+ **Expected Output:** 
 
 ```
-Person object created.
-I am a person.
-I am also a student.
+This is a Car
+It has four wheels.
 
 ```
 
@@ -22,43 +28,44 @@ I am also a student.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:48:55.186Z  
+**Submitted:** 2026-08-19T05:49:08.972Z  
 
 ```java
-// Parent class
-class Person {
+// Base class
+class Vehicle {
+    String type;
 
-    // Constructor of the parent class
-    Person() {
-        System.out.println("Person object created.");
+    // Constructor to set vehicle type
+    Vehicle(String type) {
+        this.type = type;
     }
 
-    // Method of the parent class
-    void introduce() {
-        System.out.println("I am a person.");
-    }
-}
-
-// Subclass that inherits from Person
-class Student extends Person {
-
-    // Constructor of the subclass
-    Student() {
-        super(); // Calls the constructor of the parent class
-    }
-
-    // Method that includes both parent and child behavior
-    void introduceStudent() {
-        super.introduce(); // Calls the introduce() method from the parent class
-        System.out.println("I am also a student.");
+    // Method to display vehicle type
+    void displayType() {
+        System.out.println("This is a " + type);
     }
 }
 
-// Main class to run the program
+// Child class that inherits from Vehicle
+class Car extends Vehicle {
+
+    // Constructor calling parent constructor using super()
+    Car(String type) {
+        super(type);
+    }
+
+    // Method to display full car info using inherited and custom behavior
+    void showInfo() {
+        super.displayType();  // Call method from parent class
+        System.out.println("It has four wheels.");
+    }
+}
+
+// Main class
 class Codechef {
     public static void main(String[] args) {
-        Student s = new Student();     // Creates a Student object
-        s.introduceStudent();          // Calls method to show full introduction
+        Car car = new Car("Car");   // Create object of Car
+        car.showInfo();             // Display vehicle info
     }
 }
 ```
