@@ -17,7 +17,7 @@ class Circle {
     }
 }
 
-class Codechef {
+public class Codechef {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
