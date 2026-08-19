@@ -22,7 +22,7 @@ System.out.println(nums);
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:26:41.668Z  
+**Submitted:** 2026-08-19T05:26:43.749Z  
 
 ```cpp
 import java.util.ArrayList;
