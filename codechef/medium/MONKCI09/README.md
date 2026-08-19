@@ -4,38 +4,44 @@
 
 ## Problem
 
-_Description not available._
+### Shopping list management
+
+You are given a partially written Java program that manages a shopping list using an ArrayList.
+Your task is to complete the code by following the instructions in the comments.
+
+ **Expected Output:** 
+
+```
+Final shopping list: [Milk, Eggs, Apples, Chicken, Rice]
+
+```
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:27:25.106Z  
+**Submitted:** 2026-08-19T05:27:36.008Z  
 
 ```java
 import java.util.ArrayList;
 
-public class Main {
+class Codechef {
     public static void main(String[] args) {
-        ArrayList<String> todoList = new ArrayList<>();
+        ArrayList<String> shoppingList = new ArrayList<>();
         
-        // Adding initial tasks
-        todoList.add("Buy groceries");
-        todoList.add("Do laundry");
-        todoList.add("Pay bills");
-        todoList.add("Call mom");
-        todoList.add("Walk dog");
+        shoppingList.add("Milk");
+        shoppingList.add("Eggs");
+        shoppingList.add("Bread");
+        shoppingList.add("Cheese");
+        shoppingList.add("Apples");
+        shoppingList.add("Chicken");
+        shoppingList.add("Rice");
         
-        System.out.println("Original list: " + todoList);
+        shoppingList.remove(3);
+        shoppingList.remove("Bread");
         
-        // Remove task at index 2 ("Pay bills")
-        todoList.remove(2);
-        System.out.println("After removing index 2: " + todoList);
-        
-        // Remove "Call mom" by object
-        todoList.remove("Call mom");
-        System.out.println("Final to-do list: " + todoList);
+        System.out.println("Final shopping list: " + shoppingList);
     }
 }
 
