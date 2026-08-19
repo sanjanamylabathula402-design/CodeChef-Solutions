@@ -4,32 +4,36 @@
 
 ## Problem
 
-### Worked example - Exploring Two-Dimensional Arrays
+### Printing a 3x3 Integer Matrix in Java
 
-In this example, we demonstrate how to declare and initialize a  **2D array**  in Java. This example focuses on:
-
-- Declaring a 3x3 matrix
-- Initializing the array with specific values
-- Printing the matrix in a structured format
-
- **Output** 
+Consider the Java code below that initializes a 3x3 game board matrix and prints it. What will be the output of this code?
 
 ```
-Declaring a 3x3 matrix: 
-1 2 3 
-4 5 6 
-7 8 9
+class Codechef {
+    public static void main(String[] args) {
+
+        int[][] gameBoard = {
+            {1, 2, 3},  // First row
+            {4, 5, 6},  // Second row
+            {7, 8, 9}   // Third row
+        };
+
+        System.out.println(gameBoard[0][0] + " " + gameBoard[1][0] + " " + gameBoard[2][0]); 
+        System.out.println(gameBoard[0][1] + " " + gameBoard[1][1] + " " + gameBoard[2][1]); 
+        System.out.println(gameBoard[0][2] + " " + gameBoard[1][2] + " " + gameBoard[2][2]); 
+    }
+}
 
 ```
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:32:37.610Z  
+**Submitted:** 2026-08-19T05:32:43.715Z  
 
-```java
+```cpp
 class Codechef {
     public static void main(String[] args) {
         // Declare and initialize a 3x3 matrix with predefined values
