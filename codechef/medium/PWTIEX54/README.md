@@ -4,16 +4,14 @@
 
 ## Problem
 
-### Worked Example - Static Members in Java
+### Fill in the blanks - Static Members Usage
 
-In this example, we will demonstrate the usage of static members in Java. The program will define a class with a static variable, static method, and static block. We will observe how static members can be accessed without creating an object of the class.
+Complete the missing parts in the code that demonstrates the usage of static variables, methods, and blocks in Java. You need to fill in the blanks to initialize the static variable, implement the static block to modify the static variable, and correctly call the static method in the `main` method.
 
  **Expected Output:** 
 
 ```
-Static Block executed
-Static Variable: 10
-Static Method called
+Count: 11
 
 ```
 
@@ -22,30 +20,29 @@ Static Method called
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T05:43:27.277Z  
+**Submitted:** 2026-08-19T05:43:41.567Z  
 
 ```java
 class Codechef {
-    
-    // Static variable: Shared by all instances of the class
-    static int staticVar = 10;
+    // Static variable
+    static int count = 0;  // Static variable initialized to 0
 
-    // Static method: Can be called without creating an instance of the class
-    static void staticMethod() {
-        System.out.println("Static Method called");
+    // Static method
+    public static void increment() {
+        count++;  // Static method to increment the count
     }
 
-    // Static block: Executes once when the class is loaded
+    // Static block
     static {
-        System.out.println("Static Block executed");
+        count = 10;  // Static block initializes the static variable 'count' to 10
     }
 
     public static void main(String[] args) {
-        // Accessing static variable directly without creating an object
-        System.out.println("Static Variable: " + staticVar);
-
-        // Calling static method without creating an object of the class
-        staticMethod();
+        // Calling the static method
+        Codechef.increment();  // Calling the increment method to increase count by 1
+        
+        // Printing the static variable
+        System.out.println("Count: " + count);  // Prints the value of count, which is now 11
     }
 }
 
