@@ -1,23 +1,19 @@
-class Car {
-    // Instance variables (fields) for make, model, and year
-    String make;  // Default value is null
-    String model; // Default value is null
-    int year;     // Default value is 0
-
-    public void displayInfo() {
-        // Print the values of instance variables
-        System.out.println("Make: " + make);   // Prints the value of 'make'
-        System.out.println("Model: " + model); // Prints the value of 'model'
-        System.out.println("Year: " + year);   // Prints the value of 'year'
-    }
-}
-
+// Class demonstrating default field initialization
 class Codechef {
+    // Step 1: Declare instance variables without initialization
+    int intValue;         // Default: 0
+    double doubleValue;   // Default: 0.0
+    boolean boolValue;    // Default: false
+    String stringValue;   // Default: null
+
     public static void main(String[] args) {
-        // Create an object of the Car class
-        Car car = new Car();  // Object creation without explicitly setting field values
-        
-        // Display car details using the displayInfo method
-        car.displayInfo();  // Calling the method to display information
+        // Step 2: Create an object of the class
+        Codechef obj = new Codechef();
+
+        // Step 3: Print default values of instance variables
+        System.out.println("Default int value: " + obj.intValue);
+        System.out.println("Default double value: " + obj.doubleValue);
+        System.out.println("Default boolean value: " + obj.boolValue);
+        System.out.println("Default String value: " + obj.stringValue);
     }
 }
