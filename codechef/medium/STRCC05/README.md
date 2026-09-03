@@ -46,7 +46,7 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-03T16:15:39.928Z  
+**Submitted:** 2026-09-03T16:16:11.944Z  
 
 ```c_cpp
 //Update the code below to solve the problem
