@@ -49,7 +49,7 @@ For 2 indices - A[i] = B[i].
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-03T16:18:24.128Z  
+**Submitted:** 2026-09-03T16:18:34.908Z  
 
 ```c_cpp
 //Update the code below to solve the problem
