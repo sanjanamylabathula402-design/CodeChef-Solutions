@@ -44,7 +44,7 @@ NO
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-03T16:09:03.554Z  
+**Submitted:** 2026-09-03T16:09:09.541Z  
 
 ```c_cpp
 //Update the code below
