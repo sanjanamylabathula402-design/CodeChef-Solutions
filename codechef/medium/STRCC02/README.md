@@ -56,7 +56,7 @@ baaaa
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-03T16:21:41.419Z  
+**Submitted:** 2026-09-03T16:22:12.674Z  
 
 ```c_cpp
 // Update the code below to solve this problem
