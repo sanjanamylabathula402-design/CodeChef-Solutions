@@ -1,0 +1,105 @@
+# STRCC08 - Rating 956
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+
+## Problem
+
+### Practice problem - Chef and Happy String
+
+Chef has a string $S$ with him consisting of only lowercase alphabets.
+Chef is happy if the string contains a  **contiguous substring**  of length  **strictly greater**  than $2$ in which all its characters are vowels.
+Determine whether Chef is happy or not.
+ **Note** : in english alphabet, vowels are `a`, `e`, `i`, `o`, and `u`.
+
+### Input Format
+- First line will contain $T$, number of test cases. Then the test cases follow.
+- Each test case contains of a single line of input, a string $S$.
+### Output Format
+
+For each test case, if Chef is happy, print `HAPPY` else print `SAD`.
+
+### Sample 1:
+Input
+Output
+
+```
+4
+aeiou
+abxy
+aebcdefghij
+abcdeeafg
+
+```
+
+```
+Happy
+Sad
+Sad
+Happy
+
+```
+
+### Explanation:
+
+ **Test case $1$:**  Since the string `aeiou` is a contiguous substring and consists of all vowels and has a length $\gt 2$, Chef is happy.
+
+ **Test case $2$:**  Since none of the contiguous substrings of the string consist of all vowels and have a length $\gt 2$, Chef is sad.
+
+ **Test case $3$:**  Since none of the contiguous substrings of the string consist of all vowels and have a length $\gt 2$, Chef is sad.
+
+ **Test case $4$:**  Since the string `eea` is a contiguous substring and consists of all vowels and has a length $\gt 2$, Chef is happy.
+
+## Solution
+
+**Language:** c_cpp  
+**Runtime:** N/A  
+**Memory:** N/A  
+**Submitted:** 2026-09-03T14:32:26.992Z  
+
+```c_cpp
+//Update the code below
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int t;
+    scanf("%d", &t);
+
+    while (t--) {
+        char S[10001];
+        scanf("%s", S);
+
+        // your code here
+       int count = 0;
+        int happy = 0;
+
+        for (int i = 0; S[i] != '\0'; i++) {
+
+            if (S[i] == 'a' || S[i] == 'e' || S[i] == 'i' ||
+                S[i] == 'o' || S[i] == 'u') {
+
+                count++;
+
+                if (count >= 3) {
+                    happy = 1;
+                    break;
+                }
+
+            } else {
+                count = 0;
+            }
+        }
+
+        if (happy)
+            printf("HAPPY\n");
+        else
+            printf("SAD\n");
+    }
+    
+    return 0;
+}
+```
+
+---
+
+[View on CodeChef](https://www.codechef.com/problems/STRCC08)
