@@ -14,7 +14,7 @@ class Codechef
 		    int n=sc.nextInt();
 		    HashMap<Integer,Integer> hm=new HashMap<>();
 		    int mFreq=0;
-		    for(int i=0;i>n;i++)
+		    for(int i=0;i<n;i++)
 		    {
 		    int x=sc.nextInt();
 		    hm.put(x , hm.getOrDefault(x,0)+1);
