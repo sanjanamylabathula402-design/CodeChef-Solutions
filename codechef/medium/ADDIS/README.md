@@ -77,7 +77,7 @@ It can be shown that this is optimal.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-09T16:25:02.794Z  
+**Submitted:** 2026-09-09T16:26:19.146Z  
 
 ```java
 import java.util.*;
@@ -96,13 +96,13 @@ class Codechef
 		    int n=sc.nextInt();
 		    HashMap<Integer,Integer> hm=new HashMap<>();
 		    int mFreq=0;
-		    for(int i=0;i>n;i++)
+		    for(int i=0;i<n;i++)
 		    {
 		    int x=sc.nextInt();
 		    hm.put(x , hm.getOrDefault(x,0)+1);
 		    mFreq=Math.max(mFreq,hm.get(x));
 		}
-		System.out.println((mFreq+1)/2);
+		System.out.println((mFreq +1)/2);
 		}
 	}
 	}
