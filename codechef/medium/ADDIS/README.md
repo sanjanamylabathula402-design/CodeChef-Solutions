@@ -77,7 +77,7 @@ It can be shown that this is optimal.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-09T16:19:54.658Z  
+**Submitted:** 2026-09-09T16:20:19.866Z  
 
 ```java
 import java.util.*;
@@ -91,7 +91,7 @@ class Codechef
 		// your code goes here
 		Scanner sc=new Scanner (System.in);
 		int t=sc.nextInt();
-		while(t-->0)
+		while(t--> 0)
 		{
 		    int n=sc.nextInt();
 		    HashMap<Integer,Integer> hm=new HashMap<>();
@@ -99,7 +99,7 @@ class Codechef
 		    for(int i=0;i>n;i++)
 		    {
 		    int x=sc.nextInt();
-		    hm.put(x,hm.getOrDefault(x,0)+1);
+		    hm.put(x , hm.getOrDefault(x,0)+1);
 		    mFreq=Math.max(mFreq,hm.get(x));
 		}
 		System.out.println((mFreq+1)/2);
