@@ -20,7 +20,7 @@ class Codechef
 		    hm.put(x , hm.getOrDefault(x,0)+1);
 		    mFreq=Math.max(mFreq,hm.get(x));
 		}
-		System.out.println((mFreq+1)/2);
+		System.out.println((mFreq +1)/2);
 		}
 	}
 	}
