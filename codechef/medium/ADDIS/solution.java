@@ -9,7 +9,7 @@ class Codechef
 		// your code goes here
 		Scanner sc=new Scanner (System.in);
 		int t=sc.nextInt();
-		while(t-->0)
+		while(t--> 0)
 		{
 		    int n=sc.nextInt();
 		    HashMap<Integer,Integer> hm=new HashMap<>();
@@ -17,7 +17,7 @@ class Codechef
 		    for(int i=0;i>n;i++)
 		    {
 		    int x=sc.nextInt();
-		    hm.put(x,hm.getOrDefault(x,0)+1);
+		    hm.put(x , hm.getOrDefault(x,0)+1);
 		    mFreq=Math.max(mFreq,hm.get(x));
 		}
 		System.out.println((mFreq+1)/2);
