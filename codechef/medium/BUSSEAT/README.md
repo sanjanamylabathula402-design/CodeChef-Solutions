@@ -54,7 +54,7 @@ Hence, persons $1$ and $3$ share a row in this instance, so there are $2$ people
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:03:38.594Z  
+**Submitted:** 2026-09-16T15:09:56.075Z  
 
 ```java
 import java.util.*;
