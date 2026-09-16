@@ -56,20 +56,39 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:40:53.834Z  
+**Submitted:** 2026-09-16T15:43:05.813Z  
 
 ```java
 import java.util.*;
-import java.lang.*;
-import java.io.*;
-
 class Codechef
 {
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		// your code goes here
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- > 0) 
+        {
+            int n = sc.nextInt();
+            long[] a = new long[N];
+            long total = 0;
 
-	}
+            for (int i = 0; i < n; i++) {
+                a[i] = sc.nextLong();
+                total += a[i];
+            }
+            Arrays.sort(a);
+            long redSum = 0;
+            long answer = 0;
+            for (int k = 1; k <= n / 2; k++) {
+                redSum += a[n - k];
+                long blueSum = total - redSum;
+                long value = redSum * (n - k)
+                           + blueSum * k;
+                answer = Math.max(answer, value);
+            }
+            System.out.println(answer);
+        }
+    }
 }
 
 ```
