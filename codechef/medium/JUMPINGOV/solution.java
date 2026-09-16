@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-
 class Codechef {
 
     static class FastScanner {
