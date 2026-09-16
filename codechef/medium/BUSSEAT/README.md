@@ -54,7 +54,7 @@ Hence, persons $1$ and $3$ share a row in this instance, so there are $2$ people
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:02:18.822Z  
+**Submitted:** 2026-09-16T15:03:22.747Z  
 
 ```java
 import java.util.*;
@@ -74,7 +74,7 @@ int n=sc.nextInt();
 int k=sc.nextInt();
 if (k > n)
 {
-                System.out.println(k - n);
+                System.out.println(2*(k - n));
             } else {
                 System.out.println(0);
 	}
