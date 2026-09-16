@@ -61,12 +61,11 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T16:21:30.910Z  
+**Submitted:** 2026-09-16T16:22:46.161Z  
 
 ```java
 import java.io.*;
 import java.util.*;
-
 class Codechef {
 
     static class FastScanner {
