@@ -61,47 +61,45 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T16:28:35.689Z  
+**Submitted:** 2026-09-16T16:28:44.065Z  
 
 ```java
 import java.io.*;
 import java.util.*;
+
 class Codechef {
 
-    static class FastScanner {
-        private final InputStream in = System.in;
-        private final byte[] buffer = new byte[1 << 16];
-        private int ptr = 0, len = 0;
+    static class Fenwick {
+        int n;
+        int[] tree;
 
-        private int read() throws IOException {
-            if (ptr >= len) {
-                len = in.read(buffer);
-                ptr = 0;
-                if (len <= 0) return -1;
-            }
-            return buffer[ptr++];
+        Fenwick(int n) {
+            this.n = n;
+            tree = new int[n + 1];
         }
 
-        int nextInt() throws IOException {
-            int c;
-            do {
-                c = read();
-            } while (c <= ' ');
+        void add(int index, int value) {
+            while (index <= n) {
+                tree[index] += value;
+                index += index & -index;
+            }
+        }
 
-            int num = 0;
+        int sum(int index) {
+            int result = 0;
 
-            while (c > ' ') {
-                num = num * 10 + (c - '0');
-                c = read();
+            while (index > 0) {
+                result += tree[index];
+                index -= index & -index;
             }
 
-            return num;
+            return result;
         }
     }
 
     public static void main(String[] args) throws Exception {
 
-        FastScanner sc = new FastScanner();
+        FastScanner sc = new FastScanner(System.in);
 
         int T = sc.nextInt();
 
@@ -109,65 +107,143 @@ class Codechef {
 
             int N = sc.nextInt();
 
-            int[] P = new int[N + 1];
             int[] pos = new int[N + 1];
 
             for (int i = 1; i <= N; i++) {
-                P[i] = sc.nextInt();
-                pos[P[i]] = i;
+                int x = sc.nextInt();
+                pos[x] = i;
             }
+
+            long[] front = new long[N + 1];
+
+            Fenwick bit = new Fenwick(N);
+
+            for (int x = 1; x < N; x++) {
+                int smallerBefore = bit.sum(pos[x] - 1);
+                int smaller = x - 1;
+
+                long cost = (pos[x] - 1L) + smallerBefore;
+
+                front[x + 1] = front[x] + cost;
+
+                bit.add(pos[x], 1);
+            }
+
+            long[] back = new long[N + 1];
+
+            bit = new Fenwick(N);
+
+            for (int x = N; x >= 2; x--) {
+
+                int largerAfter =
+                        bit.sum(N) - bit.sum(pos[x]);
+
+                back[x - 1] = back[x] + largerAfter;
+
+                bit.add(pos[x], 1);
+            }
+
+            int[] maxR = new int[N + 1];
+
+            int current = N;
+
+            for (int l = N - 1; l >= 1; l--) {
+
+                if (pos[l] > pos[l + 1]) {
+                    current = l;
+                }
+
+                maxR[l] = current;
+            }
+
+            maxR[N] = N;
+
+            Fenwick activeValues = new Fenwick(N);
+            Fenwick movedHigh = new Fenwick(N);
+
+            long middleCost = 0;
+            int oldR = N;
+
             long answer = Long.MAX_VALUE;
 
-            long leftCost = 0;
+            for (int l = N; l >= 1; l--) {
 
-            for (int l = 1; l <= N; l++) {
+                middleCost += movedHigh.sum(pos[l] - 1);
 
-                if (l > 1) {
-                    int x = l - 1;
+                activeValues.add(pos[l], 1);
 
-                    leftCost += pos[x] - 1;
+                int r = maxR[l];
 
-                    for (int y = 1; y < x; y++) {
-                        if (pos[y] > pos[x]) {
-                            leftCost++;
-                        }
-                    }
+                for (int x = r + 1; x <= oldR; x++) {
+
+                    int activeAfter =
+                            activeValues.sum(N)
+                            - activeValues.sum(pos[x]);
+
+                    middleCost += activeAfter;
+
+                    movedHigh.add(pos[x], 1);
                 }
 
-                long rightCost = 0;
+                oldR = r;
 
-                for (int r = N; r >= l; r--) {
-                    if (r < N) {
-                        int x = r + 1;
+                long currentCost =
+                        front[l]
+                        + middleCost
+                        + back[r];
 
-                        rightCost += N - pos[x];
-
-                        for (int y = r + 2; y <= N; y++) {
-                            if (pos[y] < pos[x]) {
-                                rightCost++;
-                            }
-                        }
-                    }
-                    boolean possible = true;
-
-                    for (int x = l; x < r; x++) {
-                        if (pos[x] > pos[x + 1]) {
-                            possible = false;
-                            break;
-                        }
-                    }
-
-                    if (possible) {
-                        answer = Math.min(answer, leftCost + rightCost);
-                    }
-                }
+                answer = Math.min(answer, currentCost);
             }
 
             System.out.println(answer);
         }
     }
-}
 
+    static class FastScanner {
+
+        private final InputStream in;
+        private final byte[] buffer = new byte[1 << 16];
+
+        private int ptr = 0;
+        private int len = 0;
+
+        FastScanner(InputStream in) {
+            this.in = in;
+        }
+
+        private int read() throws IOException {
+
+            if (ptr >= len) {
+                len = in.read(buffer);
+                ptr = 0;
+
+                if (len <= 0) {
+                    return -1;
+                }
+            }
+
+            return buffer[ptr++];
+        }
+
+        int nextInt() throws IOException {
+
+            int c;
+
+            do {
+                c = read();
+            } while (c <= ' ');
+
+            int number = 0;
+
+            while (c > ' ') {
+                number = number * 10 + (c - '0');
+                c = read();
+            }
+
+            return number;
+        }
+    }
+}
 ```
 
 ---
