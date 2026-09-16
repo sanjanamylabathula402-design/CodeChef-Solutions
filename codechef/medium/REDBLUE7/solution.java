@@ -8,7 +8,7 @@ class Codechef
         while (t-- > 0) 
         {
             int n = sc.nextInt();
-            long[] a = new long[N];
+            long[] a = new long[n];
             long total = 0;
 
             for (int i = 0; i < n; i++) {
