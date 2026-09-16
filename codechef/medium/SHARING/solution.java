@@ -12,7 +12,7 @@ int a=sc.nextInt();
 int b=sc.nextInt();
 if ((a+b)%2==0)
 {
-    System.out.println(Math.max(a,b)-Math.min(a,b));
+    System.out.println((Math.max(a,b)-Math.min(a,b))/2);
 }
 else
 {
