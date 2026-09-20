@@ -60,12 +60,12 @@ Output
 
 ## Solution
 
-**Language:** c_cpp  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-20T16:25:02.223Z  
+**Submitted:** 2026-09-20T16:25:13.192Z  
 
-```c_cpp
+```java
 public static int[] findPair(int[] nums, int target) {
     HashMap<Integer, Integer> map = new HashMap<>();
     for (int i = 0; i < nums.length; i++) {
