@@ -63,7 +63,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-20T16:25:13.192Z  
+**Submitted:** 2026-09-20T16:25:36.949Z  
 
 ```java
 public static int[] findPair(int[] nums, int target) {
