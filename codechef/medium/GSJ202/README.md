@@ -22,7 +22,7 @@ Click on  **Submit**  in the IDE to proceed.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-09T05:31:34.397Z  
+**Submitted:** 2026-09-21T09:05:33.537Z  
 
 ```java
 // Click 'Submit' to view the result
