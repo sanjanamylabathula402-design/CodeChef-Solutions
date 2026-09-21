@@ -1,5 +1,5 @@
 // Change the 'custom inputs' below and click 'run'
-// Click on 'Submit' once you have tried out to proceed to the next problem
+// Once you have run the code - click on 'submit' to find the result with the private test files
 
 import java.util.Scanner;
 
