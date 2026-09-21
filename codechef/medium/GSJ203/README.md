@@ -4,35 +4,49 @@
 
 ## Problem
 
-_Description not available._
+### How to accept integer inputs
+
+We have already learned how to take user input in Learn Java course
+
+### Task
+
+Let us define a variable $N$ that accepts integer inputs.
+Output the same variable $N$.
+
+Code the solution in the IDE and then click  **Submit**  to continue.
+
+### Sample 1:
+Input
+Output
+
+```
+4312
+```
+
+```
+4312
+```
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-21T09:05:34.982Z  
+**Submitted:** 2026-09-21T09:11:12.595Z  
 
 ```java
-// Click 'Submit' to view the result
+// Update the blanks in the code below
+import java.util.Scanner;
+
 class Codechef
 {
 	public static void main (String[] args)
 	{
-		int a = -5; // Integer variable
-		System.out.println(a);
-		
-		double b = 4.0; // Double variable
-		System.out.println(b);
-		
-		String s = "1234abc"; //String variable
-		System.out.println(s);
-		
-		String[] array = {"1", "ab", "3", "name"}; // Array with string values
-		System.out.print(array[0]);
+        Scanner objName = new Scanner(System.in);
+        int N = objName.nextInt();
+		System.out.println(N);
 	}
 }
-
 ```
 
 ---
