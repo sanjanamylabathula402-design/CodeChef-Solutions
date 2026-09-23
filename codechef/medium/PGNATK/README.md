@@ -66,22 +66,72 @@ Chef can work on minutes $1, 2, 4, 5, 7$ to put up the net; so the answer is $7$
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:19:13.121Z  
+**Submitted:** 2026-09-23T15:20:27.873Z  
 
 ```java
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		// your code goes here
+class Codechef {
+    public static void main (String[] args) throws java.lang.Exception {
+        FastScanner sc = new FastScanner();
+        PrintWriter out = new PrintWriter(System.out);
+        
+        if (!sc.hasNext()) return;
+        
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            long n = sc.nextLong();
+            long k = sc.nextLong();
+            
+            long totalTime = n + (n - 1) / (k - 1);
+            out.println(totalTime);
+        }
+        
+        out.flush();
+    }
 
-	}
+    // Fast I/O helper for large inputs
+    static class FastScanner {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    String line = br.readLine();
+                    if (line == null) return null;
+                    st = new StringTokenizer(line);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        boolean hasNext() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    String line = br.readLine();
+                    if (line == null) return false;
+                    st = new StringTokenizer(line);
+                } catch (IOException e) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+    }
 }
-
 ```
 
 ---
