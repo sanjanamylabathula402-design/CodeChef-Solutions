@@ -1,52 +1,53 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.IOException;
-import java.util.StringTokenizer;
+import java.util.InputMismatchException;
 
 public class Main {
-    
-    public static void main(String[] args) throws IOException {
-        FastReader sc = new FastReader();
-        StringBuilder sb = new StringBuilder();
+    public static void main(String[] args) {
+        FastScanner scanner = new FastScanner(System.in);
+        StringBuilder output = new StringBuilder();
         
-        int t = sc.nextInt();
+        int t = scanner.nextInt();
         while (t-- > 0) {
-            int n = sc.nextInt();
+            int n = scanner.nextInt();
             long[] a = new long[n];
             for (int i = 0; i < n; i++) {
-                a[i] = sc.nextLong();
+                a[i] = scanner.nextLong();
             }
 
             // Step 1: Check if the array is already sorted
             boolean isSorted = true;
-            int firstInv = -1, lastInv = -1;
+            int firstInv = -1;
+            int lastInv = -1;
+
             for (int i = 0; i < n - 1; i++) {
                 if (a[i] > a[i + 1]) {
                     isSorted = false;
-                    if (firstInv == -1) firstInv = i;
+                    if (firstInv == -1) {
+                        firstInv = i;
+                    }
                     lastInv = i;
                 }
             }
 
             if (isSorted) {
-                sb.append("-1\n");
+                output.append("-1\n");
                 continue;
             }
 
-            // Step 2: Identify minimal bounds [L, R] covering all inverted pairs
-            int L = firstInv;
-            int R = lastInv + 1;
+            // Subarray L..R must cover all inversions
+            int l = firstInv;
+            int r = lastInv + 1;
 
-            long upperX = (R + 1 < n) ? a[R + 1] : (long) 1e18;
-            long lowerX = (L > 0) ? a[L - 1] : 0;
-
-            // Step 3: Binary search for the maximum valid X in [lowerX, upperX]
+            // Binary search for max X
+            long low = 1;
+            long high = 1_000_000_000L;
             long ans = -1;
-            long low = lowerX, high = upperX;
 
             while (low <= high) {
                 long mid = low + (high - low) / 2;
-                if (isValid(a, n, L, R, mid)) {
+                if (check(a, l, r, mid)) {
                     ans = mid;
                     low = mid + 1; // Try to find a larger X
                 } else {
@@ -54,63 +55,123 @@ public class Main {
                 }
             }
 
-            sb.append(ans).append("\n");
+            output.append(ans).append("\n");
         }
-        
-        System.out.print(sb);
+
+        System.out.print(output);
     }
 
-    // Helper method to simulate smoothing on subarray a[L...R] with threshold X
-    private static boolean isValid(long[] a, int n, int L, int R, long X) {
-        long S = 0;
-        long[] b = a.clone();
+    // Helper function to check if smoothing A[L..R] with X results in a sorted array
+    private static boolean check(long[] a, int l, int r, long x) {
+        int m = r - l + 1;
+        long[] b = new long[m];
+        for (int i = 0; i < m; i++) {
+            b[i] = a[l + i];
+        }
 
-        for (int i = L; i <= R; i++) {
-            if (b[i] >= X) {
-                S += (b[i] - X);
-                b[i] = X;
+        long s = 0;
+        for (int i = 0; i < m; i++) {
+            if (b[i] >= x) {
+                s += (b[i] - x);
+                b[i] = x;
             } else {
-                long add = Math.min(S, X - b[i]);
+                long add = Math.min(s, x - b[i]);
                 b[i] += add;
-                S -= add;
+                s -= add;
             }
         }
 
-        // Verify if the whole array becomes sorted
-        for (int i = 0; i < n - 1; i++) {
+        // Check non-decreasing condition within the smoothed subarray
+        for (int i = 0; i < m - 1; i++) {
             if (b[i] > b[i + 1]) {
                 return false;
             }
         }
+
+        // Check left boundary
+        if (l > 0 && b[0] < a[l - 1]) {
+            return false;
+        }
+
+        // Check right boundary
+        if (r < a.length - 1 && b[m - 1] > a[r + 1]) {
+            return false;
+        }
+
         return true;
     }
 
-    // Fast I/O Class for efficiency
-    static class FastReader {
-        BufferedReader br;
-        StringTokenizer st;
+    // Fast I/O reader for Java
+    static class FastScanner {
+        private final InputStream stream;
+        private final byte[] buffer = new byte[1024 * 32];
+        private int head = 0;
+        private int tail = 0;
 
-        public FastReader() {
-            br = new BufferedReader(new InputStreamReader(System.in));
+        public FastScanner(InputStream stream) {
+            this.stream = stream;
         }
 
-        String next() {
-            while (st == null || !st.hasMoreElements()) {
+        private int read() {
+            if (tail == -1) {
+                throw new InputMismatchException();
+            }
+            if (head >= tail) {
+                head = 0;
                 try {
-                    st = new StringTokenizer(br.readLine());
+                    tail = stream.read(buffer, 0, buffer.length);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    throw new InputMismatchException();
+                }
+                if (tail <= 0) {
+                    return -1;
                 }
             }
-            return st.nextToken();
+            return buffer[head++];
         }
 
-        int nextInt() {
-            return Integer.parseInt(next());
+        public int nextInt() {
+            int c = read();
+            while (c <= ' ') {
+                if (c == -1) return -1;
+                c = read();
+            }
+            int sgn = 1;
+            if (c == '-') {
+                sgn = -1;
+                c = read();
+            }
+            int res = 0;
+            do {
+                if (c < '0' || c > '9') {
+                    throw new InputMismatchException();
+                }
+                res = res * 10 + c - '0';
+                c = read();
+            } while (c > ' ');
+            return res * sgn;
         }
 
-        long nextLong() {
-            return Long.parseLong(next());
+        public long nextLong() {
+            int c = read();
+            while (c <= ' ') {
+                if (c == -1) return -1;
+                c = read();
+            }
+            int sgn = 1;
+            if (c == '-') {
+                sgn = -1;
+                c = read();
+            }
+            long res = 0;
+            do {
+                if (c < '0' || c > '9') {
+                    throw new InputMismatchException();
+                }
+                res = res * 10 + c - '0';
+                c = read();
+            } while (c > ' ');
+            return res * sgn;
         }
     }
 }
