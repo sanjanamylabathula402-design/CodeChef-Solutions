@@ -82,11 +82,10 @@ It can be verified that for any $X \gt 4$, no choice of subarray can make the ar
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:34:13.786Z  
+**Submitted:** 2026-09-23T15:37:10.793Z  
 
 ```java
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.IOException;
 import java.util.InputMismatchException;
 
@@ -94,27 +93,19 @@ public class Main {
     public static void main(String[] args) {
         FastScanner scanner = new FastScanner(System.in);
         StringBuilder output = new StringBuilder();
-        
+
         int t = scanner.nextInt();
         while (t-- > 0) {
             int n = scanner.nextInt();
             long[] a = new long[n];
+            long maxVal = 0;
+            boolean isSorted = true;
+
             for (int i = 0; i < n; i++) {
                 a[i] = scanner.nextLong();
-            }
-
-            // Step 1: Check if the array is already sorted
-            boolean isSorted = true;
-            int firstInv = -1;
-            int lastInv = -1;
-
-            for (int i = 0; i < n - 1; i++) {
-                if (a[i] > a[i + 1]) {
+                if (a[i] > maxVal) maxVal = a[i];
+                if (i > 0 && a[i - 1] > a[i]) {
                     isSorted = false;
-                    if (firstInv == -1) {
-                        firstInv = i;
-                    }
-                    lastInv = i;
                 }
             }
 
@@ -123,18 +114,13 @@ public class Main {
                 continue;
             }
 
-            // Subarray L..R must cover all inversions
-            int l = firstInv;
-            int r = lastInv + 1;
-
-            // Binary search for max X
-            long low = 1;
-            long high = 1_000_000_000L;
+            // Binary search for maximum valid X
+            long low = 1, high = maxVal;
             long ans = -1;
 
             while (low <= high) {
                 long mid = low + (high - low) / 2;
-                if (check(a, l, r, mid)) {
+                if (canSortWithX(a, n, mid)) {
                     ans = mid;
                     low = mid + 1; // Try to find a larger X
                 } else {
@@ -148,8 +134,34 @@ public class Main {
         System.out.print(output);
     }
 
-    // Helper function to check if smoothing A[L..R] with X results in a sorted array
-    private static boolean check(long[] a, int l, int r, long x) {
+    private static boolean canSortWithX(long[] a, int n, long x) {
+        int firstGt = -1, lastGt = -1;
+        for (int i = 0; i < n; i++) {
+            if (a[i] > x) {
+                if (firstGt == -1) firstGt = i;
+                lastGt = i;
+            }
+        }
+
+        // If no element is > x, any interval containing inversions works
+        int l = (firstGt != -1) ? firstGt : 0;
+        int r = (lastGt != -1) ? lastGt : n - 1;
+
+        // Expand L and R to cover any prefix/suffix inversions outside [L, R]
+        for (int i = 0; i < l; i++) {
+            if (i > 0 && a[i - 1] > a[i]) {
+                l = 0;
+                break;
+            }
+        }
+        for (int i = r + 1; i < n; i++) {
+            if (i > 0 && a[i - 1] > a[i]) {
+                r = n - 1;
+                break;
+            }
+        }
+
+        // Simulate smoothing on a[L..R]
         int m = r - l + 1;
         long[] b = new long[m];
         for (int i = 0; i < m; i++) {
@@ -168,27 +180,20 @@ public class Main {
             }
         }
 
-        // Check non-decreasing condition within the smoothed subarray
+        // Check if smoothed segment is sorted internally
         for (int i = 0; i < m - 1; i++) {
-            if (b[i] > b[i + 1]) {
-                return false;
-            }
+            if (b[i] > b[i + 1]) return false;
         }
 
-        // Check left boundary
-        if (l > 0 && b[0] < a[l - 1]) {
-            return false;
-        }
+        // Check boundary condition with left neighbour
+        if (l > 0 && b[0] < a[l - 1]) return false;
 
-        // Check right boundary
-        if (r < a.length - 1 && b[m - 1] > a[r + 1]) {
-            return false;
-        }
+        // Check boundary condition with right neighbour
+        if (r < n - 1 && b[m - 1] > a[r + 1]) return false;
 
         return true;
     }
 
-    // Fast I/O reader for Java
     static class FastScanner {
         private final InputStream stream;
         private final byte[] buffer = new byte[1024 * 32];
@@ -200,9 +205,7 @@ public class Main {
         }
 
         private int read() {
-            if (tail == -1) {
-                throw new InputMismatchException();
-            }
+            if (tail == -1) throw new InputMismatchException();
             if (head >= tail) {
                 head = 0;
                 try {
@@ -210,9 +213,7 @@ public class Main {
                 } catch (IOException e) {
                     throw new InputMismatchException();
                 }
-                if (tail <= 0) {
-                    return -1;
-                }
+                if (tail <= 0) return -1;
             }
             return buffer[head++];
         }
@@ -230,9 +231,7 @@ public class Main {
             }
             int res = 0;
             do {
-                if (c < '0' || c > '9') {
-                    throw new InputMismatchException();
-                }
+                if (c < '0' || c > '9') throw new InputMismatchException();
                 res = res * 10 + c - '0';
                 c = read();
             } while (c > ' ');
@@ -252,9 +251,7 @@ public class Main {
             }
             long res = 0;
             do {
-                if (c < '0' || c > '9') {
-                    throw new InputMismatchException();
-                }
+                if (c < '0' || c > '9') throw new InputMismatchException();
                 res = res * 10 + c - '0';
                 c = read();
             } while (c > ' ');
@@ -262,6 +259,7 @@ public class Main {
         }
     }
 }
+
 ```
 
 ---
