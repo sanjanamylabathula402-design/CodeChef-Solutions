@@ -77,7 +77,7 @@ Thus, it's impossible to make the array  *good*  after a single deletion.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:25:22.767Z  
+**Submitted:** 2026-09-23T15:26:38.494Z  
 
 ```java
 import java.io.BufferedReader;
