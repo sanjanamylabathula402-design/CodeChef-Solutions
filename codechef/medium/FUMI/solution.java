@@ -15,37 +15,41 @@ public class Main {
             long B = sc.nextLong();
             long C = sc.nextLong();
             
-            // Case 1: Z = 1 (k = 0) -> Y = N, X = 1
+            // Case Z = 1 (k = 0): X = 1, Y = N
             long minCost = A + B * N + C;
             
-            // Case 2: Z >= 2 (k = Z - 1 >= 1)
-            // We iterate over k = 1 to N
+            // Case Z >= 2 (k = Z - 1 >= 1)
             for (long k = 1; k <= N; k++) {
-                // We want to test key values of X for a given k:
-                // 1) X = 1 (minimal X)
-                // 2) X such that k * X + X >= N  =>  X = ceil(N / (k + 1))
-                
-                // Option A: X = 1
-                long X1 = 1;
-                long Y1 = Math.max(X1, N - k * X1);
-                long cost1 = A * X1 + B * Y1 + C * (k + 1);
-                if (cost1 < minCost) {
-                    minCost = cost1;
-                }
-                
-                // Option B: X = ceil(N / (k + 1)), where Y = X
-                long X2 = (N + k) / (k + 1); // equivalent to ceil(N / (k + 1))
-                if (X2 >= 1) {
-                    long Y2 = Math.max(X2, N - k * X2);
-                    long cost2 = A * X2 + B * Y2 + C * (k + 1);
-                    if (cost2 < minCost) {
-                        minCost = cost2;
-                    }
-                }
-                
-                // Early break optimization when C * k exceeds current minCost
-                if (C * (k + 1) >= minCost) {
+                long baseCostC = C * (k + 1);
+                if (baseCostC >= minCost) {
                     break;
+                }
+                
+                // Threshold where Y = X
+                long X_boundary = (N + k) / (k + 1); // ceil(N / (k + 1))
+                
+                // Candidate 1: X = X_boundary (Y = X)
+                {
+                    long X = X_boundary;
+                    long Y = X;
+                    long cost = A * X + B * Y + baseCostC;
+                    if (cost < minCost) minCost = cost;
+                }
+                
+                // Candidate 2: X = 1 (minimal X when Y > X)
+                {
+                    long X = 1;
+                    long Y = Math.max(X, N - k * X);
+                    long cost = A * X + B * Y + baseCostC;
+                    if (cost < minCost) minCost = cost;
+                }
+                
+                // Candidate 3: X = X_boundary - 1 (maximal X before Y = X, useful when A - B * k < 0)
+                if (X_boundary - 1 >= 1) {
+                    long X = X_boundary - 1;
+                    long Y = N - k * X;
+                    long cost = A * X + B * Y + baseCostC;
+                    if (cost < minCost) minCost = cost;
                 }
             }
             
