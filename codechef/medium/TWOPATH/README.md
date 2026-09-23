@@ -96,7 +96,7 @@ We need to increment both $A_{1, 1}$ and $A_{2, 2}$, which requires two moves - 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:47:48.575Z  
+**Submitted:** 2026-09-23T15:50:18.827Z  
 
 ```java
 import java.io.*;
@@ -131,90 +131,162 @@ class Codechef {
     }
     
     private static int solve(int N, int M, int[][] A) {
-        // Essential cells (1,1) and (N,M) are visited by BOTH paths, so they must have A >= 1
         if (A[0][0] == 0 || A[N - 1][M - 1] == 0) return -1;
         
-        int INF = 1000000000;
-        int maxStep = N + M - 2;
+        // Find top-most / right-most path P1
+        boolean[][] visitedP1 = new boolean[N][M];
+        if (!findUpperPath(0, 0, N, M, A, visitedP1)) return -1;
         
-        // dp[r1][r2][hasSplit]:
-        // r1 = row of upper path P1
-        // r2 = row of lower path P2 (r1 <= r2)
-        // hasSplit: 0 = paths have never split yet
-        //           1 = paths are currently split OR have split at least once
-        int[][][] dp = new int[N][N][2];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                Arrays.fill(dp[i][j], INF);
-            }
-        }
+        // Find bottom-most / left-most path P2
+        boolean[][] visitedP2 = new boolean[N][M];
+        if (!findLowerPath(0, 0, N, M, A, visitedP2)) return -1;
         
-        // Base case at step 0 (cell (0,0))
-        // If (0,0) has A[0][0] == 1, both paths visit it, so it needs an operation
-        dp[0][0][0] = (A[0][0] == 1) ? 1 : 0;
-        
-        for (int step = 0; step < maxStep; step++) {
-            int[][][] nextDp = new int[N][N][2];
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
-                    Arrays.fill(nextDp[i][j], INF);
+        // Check if P1 and P2 are distinct
+        boolean distinct = false;
+        for (int r = 0; r < N; r++) {
+            for (int c = 0; c < M; c++) {
+                if (visitedP1[r][c] != visitedP2[r][c]) {
+                    distinct = true;
+                    break;
                 }
             }
-            
-            for (int r1 = 0; r1 < N; r1++) {
-                int c1 = step - r1;
-                if (c1 < 0 || c1 >= M) continue;
-                
-                for (int r2 = r1; r2 < N; r2++) {
-                    int c2 = step - r2;
-                    if (c2 < 0 || c2 >= M) continue;
-                    
-                    for (int split = 0; split < 2; split++) {
-                        if (dp[r1][r2][split] == INF) continue;
-                        
-                        // Path 1 moves: dr1 = 1 (down), dr1 = 0 (right)
-                        for (int dr1 = 0; dr1 <= 1; dr1++) {
-                            int nr1 = r1 + dr1;
-                            int nc1 = c1 + (1 - dr1);
-                            if (nr1 >= N || nc1 >= M || A[nr1][nc1] == 0) continue;
-                            
-                            // Path 2 moves: dr2 = 1 (down), dr2 = 0 (right)
-                            for (int dr2 = 0; dr2 <= 1; dr2++) {
-                                int nr2 = r2 + dr2;
-                                int nc2 = c2 + (1 - dr2);
-                                if (nr2 >= N || nc2 >= M || A[nr2][nc2] == 0) continue;
-                                
-                                // Keep Path 1 above or equal to Path 2
-                                if (nr1 > nr2) continue;
-                                
-                                int nextSplit = split;
-                                if (nr1 < nr2) nextSplit = 1; // Paths split here
-                                
-                                int cost = 0;
-                                // If paths coincide at (nr1, nc1), A must be 2
-                                if (nr1 == nr2) {
-                                    if (A[nr1][nc1] == 1) {
-                                        // If both paths arrive at same cell with A=1,
-                                        // operation is needed unless we already accounted for row/col
-                                        cost = 1;
-                                    }
-                                }
-                                
-                                nextDp[nr1][nr2][nextSplit] = Math.min(
-                                    nextDp[nr1][nr2][nextSplit],
-                                    dp[r1][r2][split] + cost
-                                );
-                            }
-                        }
+            if (distinct) break;
+        }
+        
+        if (!distinct) return -1; // No two distinct paths possible
+        
+        // Find all shared cells with A[r][c] == 1
+        Set<Integer> reqRows = new HashSet<>();
+        Set<Integer> reqCols = new HashSet<>();
+        List<int[]> edges = new ArrayList<>();
+        
+        for (int r = 0; r < N; r++) {
+            for (int c = 0; c < M; c++) {
+                if (visitedP1[r][c] && visitedP2[r][c]) {
+                    if (A[r][c] == 1) {
+                        reqRows.add(r);
+                        reqCols.add(c);
+                        edges.add(new int[]{r, c});
                     }
                 }
             }
-            dp = nextDp;
         }
         
-        // Both paths end at (N-1, M-1) and must have split at least once (hasSplit == 1)
-        int result = dp[N - 1][N - 1][1];
-        return (result >= INF) ? -1 : result;
+        if (edges.isEmpty()) return 0;
+        
+        // Min Vertex Cover on Bipartite Graph of required rows and cols
+        return minVertexCover(reqRows, reqCols, edges);
+    }
+    
+    private static boolean findUpperPath(int r, int c, int N, int M, int[][] A, boolean[][] visited) {
+        // Greedy attempt to go Right first, then Down
+        boolean[][] dp = new boolean[N][M];
+        dp[N - 1][M - 1] = (A[N - 1][M - 1] > 0);
+        
+        for (int i = N - 1; i >= 0; i--) {
+            for (int j = M - 1; j >= 0; j--) {
+                if (A[i][j] == 0) continue;
+                if (i == N - 1 && j == M - 1) continue;
+                if (j + 1 < M && dp[i][j + 1]) dp[i][j] = true;
+                if (i + 1 < N && dp[i + 1][j]) dp[i][j] = true;
+            }
+        }
+        
+        if (!dp[0][0]) return false;
+        
+        int currR = 0, currC = 0;
+        visited[currR][currC] = true;
+        while (currR != N - 1 || currC != M - 1) {
+            // Prefer Right first for upper path
+            if (currC + 1 < M && dp[currR][currC + 1]) {
+                currC++;
+            } else if (currR + 1 < N && dp[currR + 1][currC]) {
+                currR++;
+            } else {
+                return false;
+            }
+            visited[currR][currC] = true;
+        }
+        return true;
+    }
+    
+    private static boolean findLowerPath(int r, int c, int N, int M, int[][] A, boolean[][] visited) {
+        boolean[][] dp = new boolean[N][M];
+        dp[N - 1][M - 1] = (A[N - 1][M - 1] > 0);
+        
+        for (int i = N - 1; i >= 0; i--) {
+            for (int j = M - 1; j >= 0; j--) {
+                if (A[i][j] == 0) continue;
+                if (i == N - 1 && j == M - 1) continue;
+                if (i + 1 < N && dp[i + 1][j]) dp[i][j] = true;
+                if (j + 1 < M && dp[i][j + 1]) dp[i][j] = true;
+            }
+        }
+        
+        if (!dp[0][0]) return false;
+        
+        int currR = 0, currC = 0;
+        visited[currR][currC] = true;
+        while (currR != N - 1 || currC != M - 1) {
+            // Prefer Down first for lower path
+            if (currR + 1 < N && dp[currR + 1][currC]) {
+                currR++;
+            } else if (currC + 1 < M && dp[currR][currC + 1]) {
+                currC++;
+            } else {
+                return false;
+            }
+            visited[currR][currC] = true;
+        }
+        return true;
+    }
+    
+    private static int minVertexCover(Set<Integer> rows, Set<Integer> cols, List<int[]> edges) {
+        List<Integer> rowList = new ArrayList<>(rows);
+        List<Integer> colList = new ArrayList<>(cols);
+        
+        Map<Integer, Integer> rowIdx = new HashMap<>();
+        Map<Integer, Integer> colIdx = new HashMap<>();
+        for (int i = 0; i < rowList.size(); i++) rowIdx.put(rowList.get(i), i);
+        for (int i = 0; i < colList.size(); i++) colIdx.put(colList.get(i), i);
+        
+        int n1 = rowList.size();
+        int n2 = colList.size();
+        List<Integer>[] adj = new ArrayList[n1];
+        for (int i = 0; i < n1; i++) adj[i] = new ArrayList<>();
+        
+        for (int[] edge : edges) {
+            int u = rowIdx.get(edge[0]);
+            int v = colIdx.get(edge[1]);
+            adj[u].add(v);
+        }
+        
+        // Maximum Bipartite Matching (Hopcroft-Karp / DFS)
+        int[] match = new int[n2];
+        Arrays.fill(match, -1);
+        int matchingSize = 0;
+        
+        for (int i = 0; i < n1; i++) {
+            boolean[] vis = new boolean[n2];
+            if (dfs(i, adj, match, vis)) {
+                matchingSize++;
+            }
+        }
+        
+        // By Kőnig's Theorem, Minimum Vertex Cover = Max Bipartite Matching
+        return matchingSize;
+    }
+    
+    private static boolean dfs(int u, List<Integer>[] adj, int[] match, boolean[] vis) {
+        for (int v : adj[u]) {
+            if (vis[v]) continue;
+            vis[v] = true;
+            if (match[v] < 0 || dfs(match[v], adj, match, vis)) {
+                match[v] = u;
+                return true;
+            }
+        }
+        return false;
     }
 }
 ```
