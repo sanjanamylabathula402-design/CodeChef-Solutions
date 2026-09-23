@@ -76,7 +76,7 @@ The cost of this is $1+1+1\cdot 2 = 4$.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:40:05.150Z  
+**Submitted:** 2026-09-23T15:40:17.570Z  
 
 ```java
 import java.io.*;
