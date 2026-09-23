@@ -82,45 +82,58 @@ It can be verified that for any $X \gt 4$, no choice of subarray can make the ar
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:37:10.793Z  
+**Submitted:** 2026-09-23T15:29:06.695Z  
 
 ```java
-import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.InputMismatchException;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        FastScanner scanner = new FastScanner(System.in);
-        StringBuilder output = new StringBuilder();
-
-        int t = scanner.nextInt();
+    
+    public static void main(String[] args) throws IOException {
+        FastReader sc = new FastReader();
+        StringBuilder sb = new StringBuilder();
+        
+        int t = sc.nextInt();
         while (t-- > 0) {
-            int n = scanner.nextInt();
+            int n = sc.nextInt();
             long[] a = new long[n];
-            long maxVal = 0;
-            boolean isSorted = true;
-
             for (int i = 0; i < n; i++) {
-                a[i] = scanner.nextLong();
-                if (a[i] > maxVal) maxVal = a[i];
-                if (i > 0 && a[i - 1] > a[i]) {
+                a[i] = sc.nextLong();
+            }
+
+            // Step 1: Check if the array is already sorted
+            boolean isSorted = true;
+            int firstInv = -1, lastInv = -1;
+            for (int i = 0; i < n - 1; i++) {
+                if (a[i] > a[i + 1]) {
                     isSorted = false;
+                    if (firstInv == -1) firstInv = i;
+                    lastInv = i;
                 }
             }
 
             if (isSorted) {
-                output.append("-1\n");
+                sb.append("-1\n");
                 continue;
             }
 
-            // Binary search for maximum valid X
-            long low = 1, high = maxVal;
+            // Step 2: Identify minimal bounds [L, R] covering all inverted pairs
+            int L = firstInv;
+            int R = lastInv + 1;
+
+            long upperX = (R + 1 < n) ? a[R + 1] : (long) 1e18;
+            long lowerX = (L > 0) ? a[L - 1] : 0;
+
+            // Step 3: Binary search for the maximum valid X in [lowerX, upperX]
             long ans = -1;
+            long low = lowerX, high = upperX;
 
             while (low <= high) {
                 long mid = low + (high - low) / 2;
-                if (canSortWithX(a, n, mid)) {
+                if (isValid(a, n, L, R, mid)) {
                     ans = mid;
                     low = mid + 1; // Try to find a larger X
                 } else {
@@ -128,134 +141,63 @@ public class Main {
                 }
             }
 
-            output.append(ans).append("\n");
+            sb.append(ans).append("\n");
         }
-
-        System.out.print(output);
+        
+        System.out.print(sb);
     }
 
-    private static boolean canSortWithX(long[] a, int n, long x) {
-        int firstGt = -1, lastGt = -1;
-        for (int i = 0; i < n; i++) {
-            if (a[i] > x) {
-                if (firstGt == -1) firstGt = i;
-                lastGt = i;
-            }
-        }
+    // Helper method to simulate smoothing on subarray a[L...R] with threshold X
+    private static boolean isValid(long[] a, int n, int L, int R, long X) {
+        long S = 0;
+        long[] b = a.clone();
 
-        // If no element is > x, any interval containing inversions works
-        int l = (firstGt != -1) ? firstGt : 0;
-        int r = (lastGt != -1) ? lastGt : n - 1;
-
-        // Expand L and R to cover any prefix/suffix inversions outside [L, R]
-        for (int i = 0; i < l; i++) {
-            if (i > 0 && a[i - 1] > a[i]) {
-                l = 0;
-                break;
-            }
-        }
-        for (int i = r + 1; i < n; i++) {
-            if (i > 0 && a[i - 1] > a[i]) {
-                r = n - 1;
-                break;
-            }
-        }
-
-        // Simulate smoothing on a[L..R]
-        int m = r - l + 1;
-        long[] b = new long[m];
-        for (int i = 0; i < m; i++) {
-            b[i] = a[l + i];
-        }
-
-        long s = 0;
-        for (int i = 0; i < m; i++) {
-            if (b[i] >= x) {
-                s += (b[i] - x);
-                b[i] = x;
+        for (int i = L; i <= R; i++) {
+            if (b[i] >= X) {
+                S += (b[i] - X);
+                b[i] = X;
             } else {
-                long add = Math.min(s, x - b[i]);
+                long add = Math.min(S, X - b[i]);
                 b[i] += add;
-                s -= add;
+                S -= add;
             }
         }
 
-        // Check if smoothed segment is sorted internally
-        for (int i = 0; i < m - 1; i++) {
-            if (b[i] > b[i + 1]) return false;
+        // Verify if the whole array becomes sorted
+        for (int i = 0; i < n - 1; i++) {
+            if (b[i] > b[i + 1]) {
+                return false;
+            }
         }
-
-        // Check boundary condition with left neighbour
-        if (l > 0 && b[0] < a[l - 1]) return false;
-
-        // Check boundary condition with right neighbour
-        if (r < n - 1 && b[m - 1] > a[r + 1]) return false;
-
         return true;
     }
 
-    static class FastScanner {
-        private final InputStream stream;
-        private final byte[] buffer = new byte[1024 * 32];
-        private int head = 0;
-        private int tail = 0;
+    // Fast I/O Class for efficiency
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
 
-        public FastScanner(InputStream stream) {
-            this.stream = stream;
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
         }
 
-        private int read() {
-            if (tail == -1) throw new InputMismatchException();
-            if (head >= tail) {
-                head = 0;
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
                 try {
-                    tail = stream.read(buffer, 0, buffer.length);
+                    st = new StringTokenizer(br.readLine());
                 } catch (IOException e) {
-                    throw new InputMismatchException();
+                    e.printStackTrace();
                 }
-                if (tail <= 0) return -1;
             }
-            return buffer[head++];
+            return st.nextToken();
         }
 
-        public int nextInt() {
-            int c = read();
-            while (c <= ' ') {
-                if (c == -1) return -1;
-                c = read();
-            }
-            int sgn = 1;
-            if (c == '-') {
-                sgn = -1;
-                c = read();
-            }
-            int res = 0;
-            do {
-                if (c < '0' || c > '9') throw new InputMismatchException();
-                res = res * 10 + c - '0';
-                c = read();
-            } while (c > ' ');
-            return res * sgn;
+        int nextInt() {
+            return Integer.parseInt(next());
         }
 
-        public long nextLong() {
-            int c = read();
-            while (c <= ' ') {
-                if (c == -1) return -1;
-                c = read();
-            }
-            int sgn = 1;
-            if (c == '-') {
-                sgn = -1;
-                c = read();
-            }
-            long res = 0;
-            do {
-                if (c < '0' || c > '9') throw new InputMismatchException();
-                res = res * 10 + c - '0';
-                c = read();
-            } while (c > ' ');
-            return res * sgn;
+        long nextLong() {
+            return Long.parseLong(next());
         }
     }
 }
