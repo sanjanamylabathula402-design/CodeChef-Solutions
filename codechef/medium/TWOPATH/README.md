@@ -96,19 +96,19 @@ We need to increment both $A_{1, 1}$ and $A_{2, 2}$, which requires two moves - 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:43:48.677Z  
+**Submitted:** 2026-09-23T15:44:24.064Z  
 
 ```java
 import java.io.*;
 import java.util.*;
 
-public class Codechef {
+class Codechef {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         
         String line = br.readLine();
-        if (line == null) return;
+        if (line == null || line.trim().isEmpty()) return;
         int T = Integer.parseInt(line.trim());
         
         StringBuilder sb = new StringBuilder();
@@ -131,9 +131,8 @@ public class Codechef {
     }
     
     private static int solve(int N, int M, int[][] A) {
-        // Handle grid logic and path search / DP
-        // ...
-        return -1; // Replace with computed answer
+        // Implement DP / shortest path algorithm here
+        return -1;
     }
 }
 ```
