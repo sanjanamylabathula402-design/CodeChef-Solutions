@@ -4,35 +4,20 @@
 
 ## Problem
 
-Write a program for the following problem
-
-- Let’s consider a rectangle of length 11 and breadth 13.
-- Output the following on separate lines: Area of the rectangle having sides as 11 and 13 Perimeter of the rectangle having sides as 11 and 13
-
-For any rectangle, the formula for area is length * breadth.
-The formula for perimeter is 2 * (length + breadth).
-
- **Expected output** 
-
-```
-143
-48
-
-```
+_Description not available._
 
 ## Solution
 
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-25T18:06:36.447Z  
+**Submitted:** 2026-09-25T18:19:22.618Z  
 
 ```py
-# Update the '_' below to solve the problem
+# Update the '_' in the code below to provide the following output
+# 7 3
 
-print(11* 13)          # Area of the rectangle
-
-print(2* (11 +13))    # Perimeter of the rectangle
+print(3 + 4, 2 + 1)
 ```
 
 ---
