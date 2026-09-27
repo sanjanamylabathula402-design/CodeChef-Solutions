@@ -4,25 +4,26 @@
 
 ## Problem
 
-_Description not available._
+### Converting different types of variables
+
+Listen
+
+In the previous problems we learned how to convert a type of variable to another.
+
+Run the code in the editor to see how the values change upon converting the type of the variable.
 
 ## Solution
 
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-27T18:26:56.683Z  
+**Submitted:** 2026-09-27T18:27:06.368Z  
 
 ```py
-a = 3
-b = 5.8
-c = 'hello'
-d = True
-# Print the types of these four variables
-print(type(a))
-print(type(b))
-print(type(c))
-print(type(d))
+a = 5
+print(str(a))
+print(bool(a))
+print(float(a))
 ```
 
 ---
