@@ -4,22 +4,23 @@
 
 ## Problem
 
-### Converting different types of variables
+### MCQ type conversion
 
-Listen
+What is the output of the following code:
 
-In the previous problems we learned how to convert a type of variable to another.
+```
+print(int(5/2))
 
-Run the code in the editor to see how the values change upon converting the type of the variable.
+```
 
 ## Solution
 
-**Language:** Python  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-27T18:27:07.728Z  
+**Submitted:** 2026-09-27T18:27:17.681Z  
 
-```py
+```cpp
 a = 5
 print(str(a))
 print(bool(a))
