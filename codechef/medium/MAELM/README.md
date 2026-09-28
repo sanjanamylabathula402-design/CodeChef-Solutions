@@ -86,7 +86,7 @@ Therefore, all elements of $B$ cannot be matched, and the answer is `FALSE`.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T16:00:08.745Z  
+**Submitted:** 2026-09-28T16:00:16.651Z  
 
 ```java
 import java.util.Scanner;
