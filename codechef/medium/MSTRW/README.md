@@ -69,56 +69,61 @@ The weight is $3^2+3^2+3^2=27$. This equal distribution minimizes the weight of 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T16:08:40.077Z  
+**Submitted:** 2026-09-28T16:09:22.701Z  
 
 ```java
+import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        String s = sc.nextLine();
-        int K = sc.nextInt();
-
-        int[] freq = new int[26];
-
-        for (char c : s.toCharArray()) {
-            freq[c - 'a']++;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        String s = br.readLine();
+        if (s == null) {
+            s = "";
         }
 
-        // Max heap
-        PriorityQueue<Integer> pq =
-            new PriorityQueue<>(Collections.reverseOrder());
+        String lineK = br.readLine();
+        while (lineK != null && lineK.trim().isEmpty()) {
+            lineK = br.readLine();
+        }
+        
+        int K = 0;
+        if (lineK != null) {
+            K = Integer.parseInt(lineK.trim());
+        }
 
-        for (int f : freq) {
-            if (f > 0) {
-                pq.add(f);
+        int[] freq = new int[26];
+        for (char c : s.toCharArray()) {
+            if (c >= 'a' && c <= 'z') {
+                freq[c - 'a']++;
             }
         }
 
-        // Remove K characters
-        while (K > 0) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        for (int count : freq) {
+            if (count > 0) {
+                pq.add(count);
+            }
+        }
+
+        while (K > 0 && !pq.isEmpty()) {
             int maxFreq = pq.poll();
-
             maxFreq--;
-
+            K--;
             if (maxFreq > 0) {
                 pq.add(maxFreq);
             }
-
-            K--;
         }
 
-        long answer = 0;
-
-        for (int f : pq) {
-            answer += (long) f * f;
+        long minWeight = 0;
+        while (!pq.isEmpty()) {
+            long f = pq.poll();
+            minWeight += f * f;
         }
 
-        System.out.println(answer);
-
-        sc.close();
+        System.out.println(minWeight);
     }
 }
 ```
