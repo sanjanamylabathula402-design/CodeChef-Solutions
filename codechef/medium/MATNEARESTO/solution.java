@@ -1,61 +1,65 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
 import java.util.Queue;
 import java.util.LinkedList;
 
-class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = sc.nextInt();
-        int M = sc.nextInt();
+        if (!st.hasMoreTokens()) return;
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int A[][] = new int[N][M];
-        int dist[][] = new int[N][M];
+        int[][] matrix = new int[n][m];
+        int[][] dist = new int[n][m];
+        Queue<int[]> queue = new LinkedList<>();
 
-        Queue<Integer> q = new LinkedList<>();
-
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                A[i][j] = sc.nextInt();
-
-                if (A[i][j] == 0) {
+        for (int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < m; j++) {
+                matrix[i][j] = Integer.parseInt(st.nextToken());
+                if (matrix[i][j] == 0) {
                     dist[i][j] = 0;
-                    q.add(i * M + j);
+                    queue.add(new int[]{i, j});
                 } else {
-                    dist[i][j] = -1;
+                    dist[i][j] = -1; // Mark unvisited
                 }
             }
         }
 
-        int rowMove[] = {-1, 1, 0, 0};
-        int colMove[] = {0, 0, -1, 1};
+        // Direction vectors for moving Up, Down, Left, Right
+        int[] dr = {-1, 1, 0, 0};
+        int[] dc = {0, 0, -1, 1};
 
-        while (!q.isEmpty()) {
-            int current = q.poll();
+        // Multi-source BFS
+        while (!queue.isEmpty()) {
+            int[] cell = queue.poll();
+            int r = cell[0];
+            int c = cell[1];
 
-            int row = current / M;
-            int col = current % M;
+            for (int i = 0; i < 4; i++) {
+                int nr = r + dr[i];
+                int nc = c + dc[i];
 
-            for (int k = 0; k < 4; k++) {
-                int newRow = row + rowMove[k];
-                int newCol = col + colMove[k];
-
-                if (newRow >= 0 && newRow < N &&
-                    newCol >= 0 && newCol < M &&
-                    dist[newRow][newCol] == -1) {
-
-                    dist[newRow][newCol] = dist[row][col] + 1;
-
-                    q.add(newRow * M + newCol);
+                if (nr >= 0 && nr < n && nc >= 0 && nc < m && dist[nr][nc] == -1) {
+                    dist[nr][nc] = dist[r][c] + 1;
+                    queue.add(new int[]{nr, nc});
                 }
             }
         }
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                System.out.print(dist[i][j] + " ");
+        // Output result
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                sb.append(dist[i][j]).append(j == m - 1 ? "" : " ");
             }
-            System.out.println();
+            sb.append("\n");
         }
+        System.out.print(sb);
     }
 }
