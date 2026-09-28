@@ -51,7 +51,7 @@ Only horizontal and vertical moves are allowed; diagonal moves are not allowed.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T16:06:30.896Z  
+**Submitted:** 2026-09-28T16:07:31.529Z  
 
 ```java
 import java.io.BufferedReader;
