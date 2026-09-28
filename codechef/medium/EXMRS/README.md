@@ -59,7 +59,7 @@ Chef earns no marks and loses $5 \times 2=10$ marks. His final score is $-10$, w
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T14:44:19.951Z  
+**Submitted:** 2026-09-28T14:45:41.944Z  
 
 ```java
 import java.util.*;
@@ -77,7 +77,13 @@ int m=sc.nextInt();
 int w=sc.nextInt();
 int p=sc.nextInt();
 int r=sc.nextInt();
-if()
+int score = (c * m) - (w * p);
+
+        if (score >= r) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
 	}
 }
 
