@@ -13,6 +13,12 @@ int m=sc.nextInt();
 int w=sc.nextInt();
 int p=sc.nextInt();
 int r=sc.nextInt();
-if()
+int score = (c * m) - (w * p);
+
+        if (score >= r) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
 	}
 }
