@@ -69,7 +69,7 @@ The weight is $3^2+3^2+3^2=27$. This equal distribution minimizes the weight of 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-28T16:09:22.701Z  
+**Submitted:** 2026-09-28T16:10:02.317Z  
 
 ```java
 import java.io.*;
