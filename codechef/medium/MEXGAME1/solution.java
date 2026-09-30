@@ -17,7 +17,7 @@ class Codechef {
                 freq.put(A[i], freq.getOrDefault(A[i], 0) + 1);
             }
 
-            // Find the MEX of the array
+            // Find MEX of the array
             int mex = 0;
             while (freq.containsKey(mex)) {
                 mex++;
@@ -30,10 +30,10 @@ class Codechef {
                 int count = entry.getValue();
 
                 if (val > mex) {
-                    // All elements > mex can be reduced down to mex
-                    totalMoves += (long) count * (val - mex);
+                    // Elements > mex can only be reduced down to (mex + 1)
+                    totalMoves += (long) count * (val - (mex + 1));
                 } else if (val < mex) {
-                    // Extra copies of elements < mex can be reduced down to 0
+                    // Extra duplicates of elements < mex can be reduced down to 0
                     if (count > 1) {
                         totalMoves += (long) (count - 1) * val;
                     }
