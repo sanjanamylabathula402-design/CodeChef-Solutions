@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class Main {
     static final int MOD = 998244353;
@@ -13,20 +12,15 @@ public class Main {
             int n = sc.nextInt();
             int k = sc.nextInt();
 
-            // Read Q (identity permutation, included to match input format)
+            // Read Q (identity permutation, included to consume input)
             for (int i = 0; i < n; i++) {
                 sc.nextInt();
             }
 
-            long ans = 1;
+            // Calculate K^(N - K + 1) % MOD
+            long ans = power(k, n - k + 1, MOD);
 
-            // Step 1: Permutations for elements that shift left across windows
-            // Elements placed at indices 0 to N - K can take choices based on available positions
-            for (int i = 0; i <= n - k; i++) {
-                ans = (ans * (k - 1)) % MOD;
-            }
-
-            // Step 2: Factorial of remaining (K - 1) elements sorted in the last window
+            // Multiply by (K - 1)! % MOD
             for (int i = 1; i <= k - 1; i++) {
                 ans = (ans * i) % MOD;
             }
@@ -37,7 +31,17 @@ public class Main {
         out.flush();
     }
 
-    // Fast I/O helper for competitive programming
+    private static long power(long base, long exp, int mod) {
+        long res = 1;
+        base %= mod;
+        while (exp > 0) {
+            if ((exp & 1) == 1) res = (res * base) % mod;
+            base = (base * base) % mod;
+            exp >>= 1;
+        }
+        return res;
+    }
+
     static class FastScanner {
         private final InputStream in = System.in;
         private final byte[] buffer = new byte[1 << 16];
