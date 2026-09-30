@@ -1,6 +1,7 @@
 import java.io.InputStream;
 import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.TreeSet;
 
 public class Main {
     private static final int MOD = 998244353;
@@ -18,7 +19,7 @@ public class Main {
                 Q[i] = sc.nextInt();
             }
 
-            // Check if the suffix of size K-1 is sorted
+            // 1. Verify that the last K-1 elements are strictly sorted
             boolean valid = true;
             for (int i = N - K + 1; i < N - 1; i++) {
                 if (Q[i] > Q[i + 1]) {
@@ -32,28 +33,48 @@ public class Main {
                 continue;
             }
 
-            // Count valid permutations P
-            long ans = 1;
-            for (int i = 0; i <= N - K; i++) {
-                int count = 1; // Q[i] itself
-                for (int j = 1; j < K; j++) {
-                    if (Q[i] < Q[i + j]) {
-                        count++;
-                    }
-                }
-                ans = (ans * count) % MOD;
+            // 2. Process windows right-to-left to count choices and check feasibility
+            TreeSet<Integer> window = new TreeSet<>();
+            for (int i = N - K + 1; i < N; i++) {
+                window.add(Q[i]);
             }
 
-            sb.append(ans).append("\n");
+            long ans = 1;
+            for (int i = N - K; i >= 0; i--) {
+                window.add(Q[i]);
+
+                // Count elements in the active window that are >= Q[i]
+                int choices = window.tailSet(Q[i], true).size();
+                
+                // If Q[i] is greater than the smallest element in the window 
+                // that was carried over, Q is unachievable
+                if (window.first() < Q[i]) {
+                    valid = false;
+                    break;
+                }
+
+                ans = (ans * choices) % MOD;
+
+                // Keep the window size at K-1 for the previous step
+                if (window.size() == K) {
+                    window.pollLast(); // Remove the largest element pushed right
+                }
+            }
+
+            if (!valid) {
+                sb.append(0).append("\n");
+            } else {
+                sb.append(ans).append("\n");
+            }
         }
 
         System.out.print(sb);
     }
 
-    // Fast IO Scanner for large input sets
+    // Fast I/O Scanner
     static class FastScanner {
         private final InputStream is = System.in;
-        private final byte[] buffer = new byte[1024 * 32];
+        private final byte[] buffer = new byte[1024 * 64];
         private int head = 0;
         private int tail = 0;
 
