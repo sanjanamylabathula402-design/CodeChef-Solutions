@@ -1,5 +1,5 @@
-let words = ["apple", "banana", "pear", "kiwi", "grape", "orange"];
+let numbers = [10, -5, 0, 3, -2, 7, -1, 4];
 
-// complete the code
-let shortWords = words.filter(word => word.length <= 4);
-console.log(shortWords);
+// complete the code 
+let positiveNumbers = numbers.filter(number => number >=0);
+console.log(positiveNumbers);
