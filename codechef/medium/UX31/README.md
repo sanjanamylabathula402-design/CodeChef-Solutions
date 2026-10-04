@@ -13,7 +13,7 @@ The line-height CSS property sets the height of a line box. It's commonly used t
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-04T12:33:18.219Z  
+**Submitted:** 2026-10-04T12:33:21.096Z  
 
 ```cpp
 <!DOCTYPE html>
