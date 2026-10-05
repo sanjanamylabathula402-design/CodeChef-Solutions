@@ -8,8 +8,8 @@ public class Main {
         while(t-->0)
         {
             int n=sc.nextInt();
-            n= n*(n+1)/2;
-            System.out.println(n);
+            int bricks= n*(n+1)/2;
+            System.out.println(bricks);
         }
     }
 }
