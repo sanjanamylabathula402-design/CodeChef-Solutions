@@ -48,7 +48,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T15:49:32.923Z  
+**Submitted:** 2026-10-05T15:51:10.654Z  
 
 ```java
 import java.util.*;
@@ -61,8 +61,8 @@ public class Main {
         while(t-->0)
         {
             int n=sc.nextInt();
-            n= n*(n+1)/2;
-            System.out.println(n);
+            int bricks= n*(n+1)/2;
+            System.out.println(bricks);
         }
     }
 }
