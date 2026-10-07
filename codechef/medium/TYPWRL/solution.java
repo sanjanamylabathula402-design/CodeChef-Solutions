@@ -13,8 +13,8 @@ while(t-->0)
 {
     int n=sc.nextInt();
     int m=sc.nextInt();
-    String s=sc.nextInt();
-    String l=sc.nextInt();
+    String s=sc.next();
+    String l=sc.next();
     int current=1;
     int max=1;
     for(inti=0;i<n;i++)
