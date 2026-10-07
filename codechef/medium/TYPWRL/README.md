@@ -62,7 +62,7 @@ abcdefghijklmnopqrstuvwxyz
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T16:00:33.012Z  
+**Submitted:** 2026-10-07T16:01:49.912Z  
 
 ```java
 import java.util.*;
@@ -95,7 +95,8 @@ while(t-->0)
         else{
             current=1;
         }
-        max=Math.max(max,current);
+        if(current>max)
+        max=current;
     }
     System.out.println(max);
 }
