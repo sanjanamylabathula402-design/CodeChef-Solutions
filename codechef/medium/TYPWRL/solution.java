@@ -17,7 +17,7 @@ while(t-->0)
     String l=sc.next();
     int current=1;
     int max=1;
-    for(inti=0;i<n;i++)
+    for(int i=0;i<n;i++)
     {
         boolean prevLeft=l.indexOf(s.charAt(i-1))!=-1;
         boolean currLeft=l.indexOf(s.charAt(i))!=-1;
