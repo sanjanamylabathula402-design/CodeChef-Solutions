@@ -28,8 +28,7 @@ while(t-->0)
         else{
             current=1;
         }
-        if(current>max)
-        max=current;
+        max=Math.max(max,current);
     }
     System.out.println(max);
 }
