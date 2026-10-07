@@ -30,7 +30,7 @@ while(t-->0)
         }
         max=Math.max(max,current);
     }
-    System.out.prinltn(max);
+    System.out.println(max);
 }
 sc.close();
 	}
