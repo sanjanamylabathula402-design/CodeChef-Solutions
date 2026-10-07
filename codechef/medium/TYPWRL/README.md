@@ -62,7 +62,7 @@ abcdefghijklmnopqrstuvwxyz
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T15:47:09.450Z  
+**Submitted:** 2026-10-07T15:48:08.886Z  
 
 ```java
 import java.util.*;
@@ -80,8 +80,8 @@ while(t-->0)
 {
     int n=sc.nextInt();
     int m=sc.nextInt();
-    String s=sc.nextInt();
-    String l=sc.nextInt();
+    String s=sc.next();
+    String l=sc.next();
     int current=1;
     int max=1;
     for(inti=0;i<n;i++)
