@@ -1,0 +1,12 @@
+                                                                                                                                                                                    prevTasks.filter((_, index) => index !== indexToRemove)
+                                                                                                                                                                                        );
+                                                                                                                                                                                          }
+
+                                                                                                                                                                                            return (
+                                                                                                                                                                                                <div style={{ textAlign: "center", marginTop: "50px" }}>
+                                                                                                                                                                                                      <h2>📝 To-Do List</h2>
+                                                                                                                                                                                                            <TaskInput addTask={addTask} />
+                                                                                                                                                                                                                  <TaskList tasks={tasks} removeTask={removeTask} />
+                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                        );
+                                                                                                                                                                                                                        }
