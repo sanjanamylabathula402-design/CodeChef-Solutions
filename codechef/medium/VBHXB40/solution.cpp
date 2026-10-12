@@ -1,0 +1,13 @@
+const path = require('path');
+const os = require('os');
+
+const filePath = '/users/john/documents/report.txt';
+
+// Extract the filename from the file path
+const fileName = path.basename(filePath);
+
+// Get the operating system platform
+const platform = os.platform();
+
+console.log('Extracted filename:', fileName);
+console.log('Operating System Platform:', platform);
