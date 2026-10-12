@@ -26,7 +26,7 @@ Every good website needs a footer! Your task is to create the `Footer` component
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T07:00:52.389Z  
+**Submitted:** 2026-10-12T07:02:45.642Z  
 
 ```cpp
 
