@@ -23,27 +23,31 @@ Your first task is to create a static navigation bar component for the blog appl
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T09:08:00.027Z  
+**Submitted:** 2026-10-12T09:10:27.448Z  
 
 ```cpp
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+                    text-decoration: none;
+                      font-size: 1.5em;
+                        font-weight: bold;
+                        }
 
-const Navbar = () => {
-  return (
-      <nav className="navbar">
-            <div className="navbar-brand">
-                    <Link to="/">MERN Blog</Link>
-                          </div>
-                                <div className="navbar-links">
-                                        <Link to="/login">Login</Link>
-                                                <Link to="/register">Create Account</Link>
-                                                      </div>
-                                                          </nav>
-                                                            );
-                                                            };
+                        .navbar-right {
+                          display: flex;
+                            align-items: center;
+                              gap: 15px;
+                              }
 
-                                                            export default Navbar;
+                              .nav-link {
+                                color:  white;
+                                  text-decoration: none;
+                                    padding: 8px 12px;
+                                      border-radius: 4px;
+                                        transition: background-color 0.3s ease;
+                                        }
+
+                                        .nav-link:hover {
+                                          background-color:  #555;
+                                          }
 ```
 
 ---
