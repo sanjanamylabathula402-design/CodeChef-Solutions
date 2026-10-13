@@ -1,9 +1,3 @@
-        <button className="child-button" onClick={onClick}>
-              Increment Counter
-                  </button>
-                    );
-                    });
-
                     function Parent() {
                       const [count, setCount] = useState(0);
 
