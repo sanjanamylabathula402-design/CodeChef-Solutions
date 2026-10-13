@@ -19,15 +19,9 @@ Problem: A parent component (Parent) passes an increment handler to a memoized c
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T10:03:31.265Z  
+**Submitted:** 2026-10-13T14:23:09.338Z  
 
 ```cpp
-        <button className="child-button" onClick={onClick}>
-              Increment Counter
-                  </button>
-                    );
-                    });
-
                     function Parent() {
                       const [count, setCount] = useState(0);
 
