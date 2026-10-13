@@ -1,16 +1,23 @@
-import { Link, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Dashboard from "./Dashboard";
+import Profile from "./Profile";
+import Settings from "./Settings";
 
-function Dashboard() {
+function App() {
   return (
-      <div>
-            <h1>Dashboard</h1>
-                  <nav>
-                          <Link to="profile">Profile</Link> | <Link to="settings">Settings</Link>
-                                </nav>
-                                      {/* Render child routes here */}
-                                            <Outlet />
-                                                </div>
-                                                  );
-                                                  }
+      <Routes>
+            {/* Root Home route */}
+                  <Route path="/" element={<Home />} />
 
-                                                  export default Dashboard;
+                        {/* Parent Dashboard route */}
+                              <Route path="/dashboard" element={<Dashboard />}>
+                                      {/* Nested child routes */}
+                                              <Route path="profile" element={<Profile />} />
+                                                      <Route path="settings" element={<Settings />} />
+                                                            </Route>
+                                                                </Routes>
+                                                                  );
+                                                                  }
+
+                                                                  export default App;
