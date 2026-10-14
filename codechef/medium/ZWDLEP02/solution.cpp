@@ -1,6 +1,3 @@
-app.use(express.json());
-
-// Serve static files (like feedback.html) from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/submit-feedback-form', (req, res) => {
@@ -15,9 +12,12 @@ app.post('/submit-feedback-form', (req, res) => {
             res.json({ message: 'Feedback JSON data received!' });
             });
 
-            const PORT = 3000;
-            app.listen(PORT, () => {
-              console.log(`Server is running on port ${PORT}`);
-              });
+            // Conditionally start the server for local execution
+            if (process.env.NODE_ENV !== 'test') {
+              const PORT = 3000;
+                app.listen(PORT, () => {
+                    console.log(`Server is running on port ${PORT}`);
+                      });
+                      }
 
-              module.exports = app;
+                      module.exports = app;
