@@ -1,19 +1,23 @@
-const express = require('express');
-const path = require('path');
-const app = express();
+const server = http.createServer((req, res) => {
+  const parsedUrl = url.parse(req.url, true);
+    const path = parsedUrl.pathname;
+      const name = parsedUrl.query.name;
 
-// Set EJS as the templating engine
-app.set('view engine', 'ejs');
-// Set the views directory
-app.set('views', path.join(__dirname, 'views'));
+        if (path === '/greet') {
+            let greeting;
+                if (name) {
+                      greeting = `Hello, ${name}!`;
+                          } else {
+                                greeting = 'Hello, Guest!';
+                                    }
+                                        res.writeHead(200, { 'Content-Type': 'text/plain' });
+                                            res.end(greeting);
+                                              } else {
+                                                  res.writeHead(404, { 'Content-Type': 'text/plain' });
+                                                      res.end('404 Not Found');
+                                                        }
+                                                        });
 
-// Define a route for the homepage
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-// Start the server
-const port = 3000;
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+                                                        server.listen(3000, () => {
+                                                          console.log('Server listening on port 3000');
+                                                          });
