@@ -27,32 +27,32 @@ Change the browsers URL to `YOUR_URL/message`. You should see the content of `me
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T10:53:52.659Z  
+**Submitted:** 2026-10-15T16:38:18.435Z  
 
 ```cpp
+          res.end('Welcome to the server!');
+            } else if (req.url === '/message') {
                 const filePath = path.join(__dirname, 'public', 'message.txt');
-                    
-                        fs.readFile(filePath, 'utf8', (err, data) => {
-                              if (err) {
-                                      res.writeHead(500, { 'Content-Type': 'text/plain' });
-                                              res.end('Internal Server Error');
-                                                    } else {
-                                                            res.writeHead(200, { 'Content-Type': 'text/plain' });
-                                                                    res.end(data);
-                                                                          }
-                                                                              });
-                                                                                } else {
-                                                                                    res.writeHead(404, { 'Content-Type': 'text/plain' });
-                                                                                        res.end('Not Found');
-                                                                                          }
-                                                                                          });
 
-                                                                                          const port = 3000;
-                                                                                          server.listen(port, () => {
-                                                                                            console.log(`Server running at http://localhost:${port}/`);
-                                                                                            });
+                    fs.readFile(filePath, 'utf8', (err, data) => {
+                          if (err) {
+                                  res.writeHead(500, { 'Content-Type': 'text/plain' });
+                                          res.end('Internal Server Error');
+                                                } else {
+                                                        res.writeHead(200, { 'Content-Type': 'text/plain' });
+                                                                res.end(data);
+                                                                      }
+                                                                          });
+                                                                            } else {
+                                                                                res.writeHead(404, { 'Content-Type': 'text/plain' });
+                                                                                    res.end('Not Found');
+                                                                                      }
+                                                                                      });
 
-                                                                                            module.exports = server;
+                                                                                      const port = 3000;
+                                                                                      server.listen(port, () => {
+                                                                                        console.log(`Server is running on port ${port}`);
+                                                                                        });
 ```
 
 ---
