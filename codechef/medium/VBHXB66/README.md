@@ -32,32 +32,19 @@ Click "Submit" to go to the next problem.
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T10:53:22.277Z  
+**Submitted:** 2026-10-15T16:37:38.836Z  
 
 ```cpp
-                    const imagePath = path.join(__dirname, 'public', 'nodejs.png');
-                        
-                            fs.readFile(imagePath, (err, data) => {
-                                  if (err) {
-                                          res.writeHead(500, { 'Content-Type': 'text/plain' });
-                                                  res.end('Internal Server Error');
-                                                        } else {
-                                                                res.writeHead(200, { 'Content-Type': 'image/png' });
-                                                                        res.end(data);
-                                                                              }
-                                                                                  });
-                                                                                    } else {
-                                                                                        res.writeHead(404, { 'Content-Type': 'text/plain' });
-                                                                                            res.end('Not Found');
-                                                                                              }
-                                                                                              });
+
+                                                                                                module.exports = server;
 
                                                                                               const port = 3000;
                                                                                               server.listen(port, () => {
                                                                                                 console.log(`Server running at http://localhost:${port}/`);
                                                                                                 });
-
-                                                                                                module.exports = server;
+                                                                                              }
+                                                                                              });
+                                                                                            res.end('Not Found');
 ```
 
 ---
